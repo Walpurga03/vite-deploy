@@ -1,0 +1,13 @@
+.rating-scale {
+    display: flex;
+    margin-left: 1em;
+    margin-right: 0.5em;
+    }
+    
+    .scale-point {
+      width: 23px;
+      height: 10px;
+      border: 1px solid gray;
+      margin-right: 0px;
+    }
+  

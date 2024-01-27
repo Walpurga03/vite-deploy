@@ -1,0 +1,40 @@
+.card {
+    background-color: #ffffff; /* Heller Hintergrund für die Karte */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Schatten-Effekt */
+    border-radius: 1em; /* Abgerundete Ecken */
+    border-top: #323032 solid 0.2em;
+    border-left: #323032 solid 0.5em;
+    border-right: #323032 solid 0.5em;
+    border-bottom: #323032 solid 0.5em;
+
+}
+
+
+.card-ul {
+    list-style: none; /* Entfernt Aufzählungszeichen */
+    padding: 0; /* Entfernt Padding */
+    font-size: 16px; /* Schriftgröße */
+}
+
+.card-image {
+    width: 100.3%; /* Bild nimmt die volle Breite der Karte ein */
+    height: auto; /* Höhe passt sich proportional zur Breite an */
+}
+
+.card-li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px; /* Abstand zwischen den Listenelementen */
+    padding:0 1.5em;
+}
+
+.card.clickable li {
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.card.clickable li:hover {
+    background-color: #f0f0f0; 
+    color: #333;
+}

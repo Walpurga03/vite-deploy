@@ -1,0 +1,87 @@
+.game-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10em;
+}
+
+.card-container {
+    width: 330px;
+    height: 440px;
+    border: solid 1px rgb(138, 134, 134);
+    border-radius: 1em; /* Abgerundete Ecken */
+    box-shadow: 5px 5px 5px grey;
+}
+
+@media (max-width: 900px) {
+    .game-container {
+        flex-direction: column;
+        gap: 3em;
+    }
+}
+
+.end-game-message {
+    margin-top: 20px;
+    font-size: 24px;
+    color: red;
+}
+
+.button-container {
+    display: flex;
+    align-items: center;
+    margin-top: -15em;
+    justify-content: center;
+    width: 100px; /* oder eine passende Breite */
+    height: 50px; /* oder eine passende Höhe */
+}
+
+.hidden-button {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.visible-button {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+.comparison-result {
+    position: absolute;
+    top: 50%; /* Positionieren Sie das Ergebnis in der Mitte */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* Weitere Stile */
+}
+
+.slide-in {
+    animation: slideIn 1s forwards;
+}
+
+.slide-out {
+    animation: slideOut 1s forwards;
+}
+
