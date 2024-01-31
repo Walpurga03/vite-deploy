@@ -2,14 +2,26 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { startGame, compareCardProperties } from '../redux/actions';
 import { selectHighestPropertyForComputer } from '../logic/gameLogic';
+import { toggleLanguage } from '../redux/actions';
+
 import Card from './Card';
 import '../styles/GameBoard.css';
 
 const GameBoard = () => {
     const { playerCards, computerCards, isGameStarted, isPlayerTurn, lastResult, lastSelectedProperty, lastPlayerValue, lastComputerValue, gameOver } = useSelector(state => state.game);
     const dispatch = useDispatch();
-
+    const { currentLanguage } = useSelector(state => state.game);
     const [resultMessage, setResultMessage] = useState(null);
+    const [isCardFlipped, setIsCardFlipped] = useState(false);
+    const [flipComputerCard, setFlipComputerCard] = useState(false);
+
+    const handleCardClick = () => {
+        setIsCardFlipped(!isCardFlipped); // Umdrehen der Karte
+    };
+   
+    const handleToggleLanguage = () => {
+        dispatch(toggleLanguage());
+    };
 
     useEffect(() => {
         if (resultMessage) {
@@ -27,6 +39,7 @@ const GameBoard = () => {
 
      const handlePropertyClick = (property) => {
         if (playerCards.length > 0 && computerCards.length > 0) {
+            setFlipComputerCard(true);
             const result = compareCardProperties(playerCards[0], computerCards[0], property);
             
             setResultMessage({
@@ -35,7 +48,7 @@ const GameBoard = () => {
                 playerValue: playerCards[0][property],
                 computerValue: computerCards[0][property]
             });
-
+           
             dispatch(compareCardProperties(playerCards[0], computerCards[0], property));
         }
     };
@@ -67,6 +80,9 @@ const GameBoard = () => {
                 <>
                     {isGameStarted ? (
                         <div className="game-container">
+                            <button className="language-toggle-button" onClick={handleToggleLanguage}>
+                                {currentLanguage === 'DE' ? 'E' : 'D'}
+                            </button>
                             <div className="player-cards">
                                 <div className="card-count">Spieler Karten: {playerCards.length}</div>
                                 {playerCards.length > 0 && 
@@ -74,6 +90,7 @@ const GameBoard = () => {
                                         card={playerCards[0]} 
                                         onPropertyClick={handlePropertyClick}
                                         isClickable={isPlayerTurn} 
+                                        currentLanguage={currentLanguage}
                                     />
                                 }
                             </div>
@@ -97,6 +114,7 @@ const GameBoard = () => {
                                     <Card 
                                         card={computerCards[0]}
                                         isClickable={false} 
+                                        currentLanguage={currentLanguage}
                                     />
                                 }
                             </div>

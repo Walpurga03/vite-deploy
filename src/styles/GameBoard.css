@@ -85,3 +85,38 @@
     animation: slideOut 1s forwards;
 }
 
+.language-toggle-button {
+    position: fixed; /* Fixiert den Button auf dem Bildschirm */
+    top: 10px;       /* Abstand von oben */
+    right: 10px;     /* Abstand von rechts */
+    z-index: 1000;   /* Stellt sicher, dass der Button über anderen Elementen liegt */
+    width: 50px
+}
+
+.card-container {
+    perspective: 1000px; /* Perspektive für 3D-Effekt */
+  }
+  
+  .card-flip {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+  }
+  
+  .card-flip.is-flipped {
+    transform: rotateY(180deg); /* Dreht die Karte um 180 Grad */
+  }
+  
+  .card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Versteckt die Rückseite während der Drehung */
+  }
+  
+  .card-back {
+    transform: rotateY(180deg); /* Dreht die Rückseite um, damit sie korrekt angezeigt wird */
+  }
+  
