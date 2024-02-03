@@ -21,11 +21,35 @@ const Card = ({ card, onPropertyClick, isClickable, currentLanguage, isPlayerCar
     const renderProperties = () => {
         return (
             <ul className='card-ul'>
-                <li onClick={() => handlePropertyClick('property0')}>{currentLanguage === 'DE' ? card.property1D : card.property1E}: {card.property1}</li>
-                <li className='card-li' onClick={() => handlePropertyClick('property2')}>{currentLanguage === 'DE' ? card.property2D : card.property2E}: {card.property2}<RatingScale value={card.property2} fillColor="#DE9796"/></li>
-                <li className='card-li' onClick={() => handlePropertyClick('property3')}>{currentLanguage === 'DE' ? card.property3D : card.property3E}: {card.property3}<RatingScale value={card.property3} fillColor="#CEDBE6"/></li>
-                <li className='card-li' onClick={() => handlePropertyClick('property4')}>{currentLanguage === 'DE' ? card.property4D : card.property4E}: {card.property4}<RatingScale value={card.property4} fillColor="#78CBB3"/></li>
-                <li className='card-li' onClick={() => handlePropertyClick('property5')}>{currentLanguage === 'DE' ? card.property5D : card.property5E}: {card.property5}<RatingScale value={card.property5} fillColor="#E3C5B1"/></li>
+                <li className='card-li-since' onClick={() => handlePropertyClick('property0')}>{currentLanguage === 'DE' ? card.property1D : card.property1E}: {card.property1}</li>
+                <li className='card-li' onClick={() => handlePropertyClick('property2')}>
+                <span className="card-li-text">{currentLanguage === 'DE' ? card.property2D : card.property2E}:</span>
+                    <div className="property-with-scale">
+                        <span>{card.property2}</span>
+                        <RatingScale value={card.property2} fillColor="#DE9796"/>
+                    </div>
+                </li>
+                <li className='card-li' onClick={() => handlePropertyClick('property3')}>
+                <span className="card-li-text">{currentLanguage === 'DE' ? card.property3D : card.property3E}:</span>
+                    <div className="property-with-scale">
+                        <span>{card.property3}</span>
+                        <RatingScale value={card.property3} fillColor="#CEDBE6"/>
+                    </div>
+                </li>  
+                <li className='card-li' onClick={() => handlePropertyClick('property4')}>
+                <span className="card-li-text">{currentLanguage === 'DE' ? card.property4D : card.property4E}:</span>
+                    <div className="property-with-scale">
+                        <span>{card.property4}</span>
+                        <RatingScale value={card.property4} fillColor="#78CBB3"/>
+                    </div>
+                </li>  
+                <li className='card-li' onClick={() => handlePropertyClick('property5')}>
+                    <span className="card-li-text">{currentLanguage === 'DE' ? card.property5D : card.property5E}:</span>
+                    <div className="property-with-scale">
+                        <span>{card.property5}</span>
+                        <RatingScale value={card.property5} fillColor="#E3C5B1"/>
+                    </div>
+                </li>  
             </ul>
         );
     };

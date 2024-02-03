@@ -1,14 +1,8 @@
-.card {
-    background-color: #ffffff; /* Heller Hintergrund für die Karte */
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Schatten-Effekt */
-    border-radius: 1em; /* Abgerundete Ecken */
-    border-top: #323032 solid 0.2em;
-    border-left: #323032 solid 0.5em;
-    border-right: #323032 solid 0.5em;
-    border-bottom: #323032 solid 0.5em;
-
+.card-image {
+    width: 100.1%; /* Passt die Bildbreite an die Kartenbreite an */
+    height: auto; /* Hält das Seitenverhältnis bei */
+    border-radius: 20px;
 }
-
 
 .card-ul {
     list-style: none; /* Entfernt Aufzählungszeichen */
@@ -16,25 +10,112 @@
     font-size: 16px; /* Schriftgröße */
 }
 
-.card-image {
-    width: 100.3%; /* Bild nimmt die volle Breite der Karte ein */
-    height: auto; /* Höhe passt sich proportional zur Breite an */
+.card-ul {
+    list-style: none; /* Entfernt die Listensymbole */
+    padding: 10px; /* Fügt Innenabstand hinzu */
 }
 
 .card-li {
+    margin-bottom: 5px; /* Abstand zwischen Listenelementen */
+    font-weight: bold; /* Macht den Text fett */
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    margin-bottom: 5px; /* Abstand zwischen den Listenelementen */
-    padding:0 1.5em;
+    justify-content: space-between; /* Verteilt die Inhalte */
+    width: 100%; /* Stellt sicher, dass das li-Element die volle Breite einnimmt */
+    cursor: pointer; /* Verändert den Cursor beim Hover */
+}
+.card-li-since {
+    margin-bottom: 5px; /* Abstand zwischen Listenelementen */
+    font-weight: bold; /* Macht den Text fett */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Verteilt die Inhalte */
+    width: 100%; /* Stellt sicher, dass das li-Element die volle Breite einnimmt */
+    cursor: pointer; /* Verändert den Cursor beim Hover */
 }
 
-.card.clickable li {
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
+.card-li:hover{
+    background-color: #f0f0f0; /* Hintergrundfarbe beim Hover */
+}
+.card-li-since:hover {
+    background-color: #f0f0f0; /* Hintergrundfarbe beim Hover */
 }
 
-.card.clickable li:hover {
-    background-color: #f0f0f0; 
-    color: #333;
+.scale-point {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 20%; /* Macht die Bewertungspunkte rund */
+}
+
+@media (max-width: 600px) {
+    .card {
+        margin: 10px; /* Kleinere Ränder auf kleineren Bildschirmen */
+    }
+}
+
+.card-container {
+    width: 330px;
+    height: 488px;
+    border-radius: 2em;
+    perspective: 1000px;
+    transition: box-shadow 0.6s, border 0.6s; /* Optional: fügt eine Übergangseffekt hinzu */
+}
+
+/* Standardzustand der Karte ohne Rand und Schatten */
+.card-container .card-flip {
+    border: none;
+    box-shadow: none;
+}
+
+
+@media (max-width: 900px) {
+    .game-container {
+        flex-direction: column;
+        gap: 3em;
+    }
+}
+
+  .card-flip {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+  }
+  
+  .card-flip.is-flipped {
+    transform: rotateY(180deg); /* Dreht die Karte um 180 Grad */
+  }
+  
+  .card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Versteckt die Rückseite während der Drehung */
+  }
+  
+  .card-back {
+    border-radius: 1em;
+    transform: rotateY(180deg); /* Dreht die Rückseite um, damit sie korrekt angezeigt wird */
+  }
+
+  .property-with-scale {
+    display: flex;
+    align-items: center; /* Zentriert die Elemente vertikal */
+    gap: 0px; /* Legt einen horizontalen Abstand zwischen den Elementen fest */
+}
+
+.card-flip .card-front, .card-flip .card-back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden; /* Verhindert das Anzeigen der Rückseite beim Drehen */
+}
+
+/* Schatten und Rand nur anzeigen, wenn NICHT umgedreht */
+.card-flip:not(.is-flipped) .card-front {
+    border: solid 5px rgb(50, 48, 50);
+    box-shadow: 5px 5px 5px grey;
+    border-radius: 2em;
 }
