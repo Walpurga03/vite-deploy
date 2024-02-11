@@ -1,24 +1,53 @@
-import React, { useState } from 'react';
+// Importieren der notwendigen Abhängigkeiten von React, Prop-Types, Styles und weiteren Komponenten.
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import "../styles/Card.css";
 import RatingScale from './RatingScale';
 
-const Card = ({ card, onPropertyClick, isClickable, currentLanguage, isPlayerCard }) => {
+// Definition der Card-Komponente mit ihren Props.
+const Card = ({ card, onPropertyClick, isClickable, currentLanguage, isPlayerCard, shouldFlip  }) => {
+    // Initialisierung des Zustands `isFlipped`, um zu steuern, ob die Karte umgedreht ist.
+    // Spielerkarten starten auf der Vorderseite (false), Computerkarten auf der Rückseite (true).
     const [isFlipped, setIsFlipped] = useState(!isPlayerCard);
 
-    const handleCardClick = () => {
+
+    useEffect(() => {
+        console.log(`Card [${card.id}]: isFlipped initialisiert auf ${isFlipped}`);
+    }, []); // Nur beim Initialisieren
+
+    useEffect(() => {
+        console.log(`Card [${card.id}]: isFlipped geändert zu ${isFlipped}`);
+    }, [isFlipped]);
+
+
+    // useEffect Hook, der auf Änderungen von `shouldFlip` und `isPlayerCard` reagiert.
+    // Für Computerkarten wird `isFlipped` entsprechend `shouldFlip` gesetzt.
+    useEffect(() => {
+        if (!isPlayerCard) { 
+            console.log(`Updating flip state for computer card [${card.id}] to ${shouldFlip}`);
+            setIsFlipped(shouldFlip);
+        }
+    }, [shouldFlip, isPlayerCard]);
+
+    // Handler für Klicks auf die Karte selbst.
+    // Umdrehen der Karte, wenn sie klickbar ist.
+   const handleCardClick = () => {
         if (isClickable) {
             setIsFlipped(false);
         }
     };
 
+    // Handler für Klicks auf eine spezifische Eigenschaft der Karte.
+    // Ruft `onPropertyClick` auf, wenn die Karte klickbar ist und der Callback definiert ist.
     const handlePropertyClick = (propertyName) => {
         if (isClickable && onPropertyClick) {
             onPropertyClick(propertyName, card[propertyName]);
         }
     };
 
-    const renderProperties = () => {
+    // Funktion zum Rendern der Karten-Eigenschaften.
+    // Erstellt eine Liste von Eigenschaften, die interaktiv sind, falls die Karte klickbar ist.
+   const renderProperties = () => {
         return (
             <ul className='card-ul'>
                 <li className='card-li-since' onClick={() => handlePropertyClick('property0')}>{currentLanguage === 'DE' ? card.property1D : card.property1E}: {card.property1}</li>
@@ -55,6 +84,8 @@ const Card = ({ card, onPropertyClick, isClickable, currentLanguage, isPlayerCar
     };
     
 
+    // Rendern der Karte mit einer Umdreh-Animation basierend auf `isFlipped`.
+    // Beinhaltet zwei Seiten: Vorderseite (mit Bild und Eigenschaften) und Rückseite.
     return (
         <div className="card-container" onClick={handleCardClick}>
             <div className={`card-flip ${isFlipped ? 'is-flipped' : ''}`}>
@@ -72,7 +103,9 @@ const Card = ({ card, onPropertyClick, isClickable, currentLanguage, isPlayerCar
     );
 };
 
+// Definition der erwarteten Prop-Typen für `Card`.
 Card.propTypes = {
+    shouldFlip: PropTypes.bool,
     card: PropTypes.shape({
         image: PropTypes.string.isRequired,
         property0: PropTypes.number.isRequired,
@@ -83,6 +116,7 @@ Card.propTypes = {
     }).isRequired,
     onPropertyClick: PropTypes.func,
     isClickable: PropTypes.bool
+    
 };
 
 export default Card;
