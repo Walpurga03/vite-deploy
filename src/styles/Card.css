@@ -119,3 +119,27 @@
     box-shadow: 5px 5px 5px grey;
     border-radius: 2em;
 }
+
+/* Grundlegendes Design der Sprechblase */
+.card-text-bubble {
+    position: relative;
+    background: #f0f0f0;
+    border-radius: 4px;
+    padding: 10px 20px;
+    color: #333;
+    max-width: 80%;
+    margin: 10px auto;
+}
+
+/* Kleiner Pfeil an der Sprechblase */
+.card-text-bubble::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;  /* Position direkt unter der Sprechblase */
+    left: 20px;    /* Positionierung des Pfeils entlang der horizontalen Achse */
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent #f0f0f0 transparent;
+}
+
+  

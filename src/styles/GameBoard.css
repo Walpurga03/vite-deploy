@@ -79,7 +79,17 @@
     text-align: center; /* Zentriert den Text */
     font-size: 1.1rem; /* Größere Schrift */
     font-weight: bold; /* Fettgedruckter Text */
+    animation: fadeInOut 4s ease-in-out;
+    opacity: 0;
 }
+@keyframes fadeInOut {
+    0% { opacity: 0; }
+    20% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+  
+  
 
 
 .language-toggle-button {

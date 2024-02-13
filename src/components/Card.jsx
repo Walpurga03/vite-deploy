@@ -11,12 +11,20 @@ const Card = ({ card, onPropertyClick, isClickable, currentLanguage, isPlayerCar
     const [isFlipped, setIsFlipped] = useState(!isPlayerCard);
 
 
+    // Zustand für die Anzeige des vollständigen Textes
+    const [showFullText, setShowFullText] = useState(false); 
+
+    const toggleText = () => {
+        setShowFullText(!showFullText);
+    };
+
+    // Auswahl des Textes basierend auf der aktuellen Sprache
+    const text = currentLanguage === 'DE' ? card.textD : card.textE;
+
     useEffect(() => {
-        console.log(`Card [${card.id}]: isFlipped initialisiert auf ${isFlipped}`);
     }, []); // Nur beim Initialisieren
 
     useEffect(() => {
-        console.log(`Card [${card.id}]: isFlipped geändert zu ${isFlipped}`);
     }, [isFlipped]);
 
 
@@ -24,7 +32,6 @@ const Card = ({ card, onPropertyClick, isClickable, currentLanguage, isPlayerCar
     // Für Computerkarten wird `isFlipped` entsprechend `shouldFlip` gesetzt.
     useEffect(() => {
         if (!isPlayerCard) { 
-            console.log(`Updating flip state for computer card [${card.id}] to ${shouldFlip}`);
             setIsFlipped(shouldFlip);
         }
     }, [shouldFlip, isPlayerCard]);
@@ -90,12 +97,16 @@ const Card = ({ card, onPropertyClick, isClickable, currentLanguage, isPlayerCar
         <div className="card-container" onClick={handleCardClick}>
             <div className={`card-flip ${isFlipped ? 'is-flipped' : ''}`}>
                 <div className="card-front">
-                    {/* Vorderseite der Karte */}
                     <img className="card-image" src={card.image} alt="Card" />
                     {renderProperties()}
+                    <div className="card-text">
+                        <button onClick={toggleText}>{showFullText ? 'less' : 'more'}</button>
+                        <div className="card-text-bubble">
+                            <p className='card-text-p'>{showFullText ? text : `${text.substring(0, 25)}...`}</p>
+                        </div>
+                    </div>
                 </div>
                 <div className="card-back">
-                    {/* Rückseite der Karte */}
                     <img className="card-image" src={card.backCard} alt="Card Back" />
                 </div>
             </div>
@@ -113,6 +124,8 @@ Card.propTypes = {
         property3: PropTypes.number.isRequired,
         property4: PropTypes.number.isRequired,
         property5: PropTypes.number.isRequired,
+        textE: PropTypes.string,
+        textD: PropTypes.string,
     }).isRequired,
     onPropertyClick: PropTypes.func,
     isClickable: PropTypes.bool
