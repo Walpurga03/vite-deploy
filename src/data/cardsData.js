@@ -18,7 +18,7 @@
  */
 const newCards = [
     {
-      backCard: "./images/backsite/backCard.png",
+      backCard: "./images/backsite/backCard_2.png",
       id: 1,
       property0: -2009,
       property1: "2009",
@@ -41,7 +41,7 @@ const newCards = [
       textD: "Bitcoin ist das erste dezentrale Netzwerk, das den Transfer von Werten ohne eine zentrale Autorität ermöglicht. Die unveränderliche Stückzahl von 21 Millionen Bitcoin macht es zum knappsten Geld der Welt. Das Protokoll ist quelloffen, basiert auf einer Blockchain und ist Peer-to-Peer.",
     },
     {
-      backCard: "./images/backsite/backCard.png",
+      backCard: "./images/backsite/backCard_2.png",
       id: 2,
       property0: -2015,
       property1: "2015",
@@ -64,7 +64,7 @@ const newCards = [
       textD: "Ethereum ist ein quelloffenes, verteiltes System, das die Erstellung, Verwaltung und Ausführung von Programmen oder Verträgen (Smart Contracts) in seiner eigenen Blockchain ermöglicht. Eine Einheit im Ethereum-Netzwerk wird als ein Ether bezeichnet.",
     },
     {
-      backCard: "./images/backsite/backCard.png",
+      backCard: "./images/backsite/backCard_2.png",
       id: 3,
       property0: -2014,
       property1: "2014",
@@ -87,7 +87,7 @@ const newCards = [
       textD: "Monero ist eine dezentralisierte Kryptowährung. Sie verwendet ein öffentliches verteiltes Hauptbuch mit Technologien zur Verbesserung der Privatsphäre, die Transaktionen verschleiern, um Anonymität und Fungibilität zu erreichen.",
     },
     {
-      backCard: "./images/backsite/backCard.png",
+      backCard: "./images/backsite/backCard_2.png",
       id: 4,
       property0: 6000,
       property1: "6000 BC",
@@ -110,7 +110,7 @@ const newCards = [
       textD: "Gold ist ein Edelmetall, das seit Tausenden von Jahren als Geld verwendet wird. Es wird aufgrund seiner Seltenheit, Schönheit und Vielseitigkeit hoch geschätzt und hat bei der Entwicklung moderner Währungssysteme eine wichtige Rolle gespielt. Es ist zudem korrosionsbeständig und färbt nicht ab.",
     },
     {
-      backCard: "./images/backsite/backCard.png",
+      backCard: "./images/backsite/backCard_2.png",
       id: 5,
       property0: 5000,
       property1: "5000 BC",
@@ -133,7 +133,7 @@ const newCards = [
       textD: "Silber ist ein Metall, das schon seit Jahrtausenden als Zahlungsmittel verwendet wird. Es ist weniger wertvoll als Gold, wird aber aufgrund seiner Seltenheit und Schönheit dennoch sehr geschätzt. Silber wurde im Laufe der Geschichte in vielen Gesellschaften zur Herstellung von Münzen und anderen Zahlungsmitteln verwendet.",
     },
     {
-      backCard: "./images/backsite/backCard.png",
+      backCard: "./images/backsite/backCard_2.png",
       id: 6,
       property0: 8000,
       property1: "8000 BC",
@@ -156,7 +156,7 @@ const newCards = [
       textD: "Kupfer wurde im Laufe der Geschichte immer wieder als Zahlungsmittel verwendet, bereits von alten Zivilisationen wie den Ägyptern und Römern. Seine Langlebigkeit und Knappheit machten es zu einem wertvollen Material für Münzen und andere Zahlungsmittel. Heutzutage findet Kupfer vor allem in der Industrie Verwendung",
     },
     {
-      backCard: "./images/backsite/backCard.png",
+      backCard: "./images/backsite/backCard_2.png",
       id: 7,
       property0: -2002,
       property1: "2002",
@@ -179,7 +179,7 @@ const newCards = [
       textD: "Der Euro ist die offizielle Währung der Europäischen Union. Er wird von 19 der 27 EU-Mitgliedstaaten sowie von mehreren Nichtmitgliedstaaten verwendet. Er wird mit EUR abgekürzt und durch das Symbol € dargestellt. Zudem ist der Euro die am zweithäufigsten gehandelte Währung der Welt.",
     },
     {
-      backCard: "./images/backsite/backCard.png",
+      backCard: "./images/backsite/backCard_2.png",
       id: 8,
       property0: -1785,
       property1: "1785",
@@ -202,7 +202,7 @@ const newCards = [
       textD: "Der US-Dollar (USD) ist die offizielle Währung der Vereinigten Staaten von Amerika und gilt als die wichtigste Reservewährung der Welt. Die Ausgabe des US-Dollars erfolgt durch die Federal Reserve, die Zentralbank der Vereinigten Staaten.",
     },
     {
-      backCard: "./images/backsite/backCard.png",
+      backCard: "./images/backsite/backCard_2.png",
       id: 9,
       property0: -700,
       property1: "700",
@@ -225,7 +225,7 @@ const newCards = [
       textD: "Das britische Pfund (GBP) ist die offizielle Währung des Vereinigten Königreichs und neun seiner angeschlossenen Territorien. Mit einem Alter von 1200 Jahren ist das Pfund Sterling die älteste Währung, die heute noch in Gebrauch ist. Das Pfund ist international anerkannt und spielt eine bedeutende Rolle im globalen Finanzwesen.",
     },
     {
-      backCard: "./images/backsite/backCard.png",
+      backCard: "./images/backsite/backCard_2.png",
       id: 10,
       property0: -1870,
       property1: "1870",
@@ -248,7 +248,7 @@ const newCards = [
       textD: "Der japanische Yen (JPY, ¥) ist die offizielle Währung Japans und wird von der Bank von Japan ausgegeben. Er ist nach dem US-Dollar und dem Euro die am dritthäufigsten gehandelte Währung auf dem Devisenmarkt.",
     },
     {
-      backCard: "./images/backsite/backCard.png",
+      backCard: "./images/backsite/backCard_2.png",
       id: 11,
       property0: -1948,
       property1: "1948",
@@ -271,7 +271,7 @@ const newCards = [
       textD: "Der chinesische Renminbi (CNY, ¥), auch bekannt als chinesischer Yuan, ist die offizielle Währung der Volksrepublik China und wird von der People's Bank of China, der Zentralbank des Landes, ausgegeben.",
     },
     {
-      backCard: "./images/backsite/backCard.png",
+      backCard: "./images/backsite/backCard_2.png",
       id: 12,
       property0: 200,
       property1: "200 BC",
@@ -294,7 +294,7 @@ const newCards = [
       textD: "Der Denar war eine antike römische Münze, die im gesamten Römischen Reich weit verbreitet war. Er bestand aus Silber und wurde häufig im Handel und bei anderen finanziellen Transaktionen verwendet. Er war eine wichtige Währung in der antiken Welt und wurde weithin als Tauschmittel akzeptiert.",
     },
     {
-      backCard: "./images/backsite/backCard.png",
+      backCard: "./images/backsite/backCard_2.png",
       id: 13,
       property0: -1924,
       property1: "1924",
@@ -317,7 +317,7 @@ const newCards = [
       textD: "Die Reichsmark war von 1924 bis 1948 gesetzliches Zahlungsmittel im Deutschen Reich. Herausgegeben von der Reichsbank, der Zentralbank Deutschlands, ersetzte sie die Papiermark, die in den frühen 1920er Jahren erheblich an Wert verloren hatte.",
     },
     {
-      backCard: "./images/backsite/backCard.png",
+      backCard: "./images/backsite/backCard_2.png",
       id: 14,
       property0: 10000,
       property1: "10000 BC",
@@ -340,7 +340,7 @@ const newCards = [
       textD: "Salzbarren, die sogenannten Amole, wurden in Äthiopien seit dem Altertum als Zahlungsmittel verwendet. Sie wurden als Ware verwendet und hatten gleichzeitig einen Geldwert. Auf einigen lokalen Märkten Afrikas und Äthiopiens sind sie noch heute in Gebrauch.",
     },
     {
-      backCard: "./images/backsite/backCard.png",
+      backCard: "./images/backsite/backCard_2.png",
       id: 15,
       property0: 2000,
       property1: "2000 BC",
@@ -363,7 +363,7 @@ const newCards = [
       textD: "Kaurimuscheln wurden in vielen Teilen der Welt wegen ihrer Schönheit und Seltenheit als Zahlungsmittel verwendet, wurden aber nach und nach durch standardisierte Währungen ersetzt. Heute werden sie zu Dekorations- und Sammelzwecken verwendet.",
     },
     {
-      backCard: "./images/backsite/backCard.png",
+      backCard: "./images/backsite/backCard_2.png",
       id: 16,
       property0: 3000,
       property1: "3000 BC",
@@ -386,7 +386,7 @@ const newCards = [
       textD: "Kakaobohnen waren in den alten mesoamerikanischen Zivilisationen wie den Maya und den Azteken als Zahlungsmittel weit verbreitet. Kakaobohnen galten aufgrund ihrer Seltenheit und der Schwierigkeit, sie zu beschaffen, als wertvoll und wurden häufig im Tausch gegen andere Waren und Dienstleistungen verwendet.",
     },
     {
-      backCard: "./images/backsite/backCard.png",
+      backCard: "./images/backsite/backCard_2.png",
       id: 17,
       property0: -1619,
       property1: "1619",
@@ -409,7 +409,7 @@ const newCards = [
       textD: "Natürliches Geld aus Tabak war in Amerika, Afrika, Indonesien und Melanesien ein gängiges Tauschmittel. Zigarettengeld entsteht oft in Zeiten, in denen traditionelle Währungen zusammenbrechen, wie es beispielsweise während der Hyperinflation in der Weimarer Republik der Fall war.",
     },
     {
-      backCard: "./images/backsite/backCard.png",
+      backCard: "./images/backsite/backCard_2.png",
       id: 18,
       property0: 10000,
       property1: "10000 BC",
@@ -432,7 +432,7 @@ const newCards = [
       textD: "Natürliches Geld. “Pecunia” bedeutet auf Lateinisch Geld. Sein Ursprung “pecus” (Vieh) weist auf seine sehr lange Verwendung als Wertmaßstab hin. Es diente zur Entlohnung von Dienstleistungen, zur Begleichung von Schulden, Steuern, Bußgeldern und als Schlacht- oder Siegespreis.",
     },
     {
-      backCard: "./images/backsite/backCard.png",
+      backCard: "./images/backsite/backCard_2.png",
       id: 19,
       property0: 2000,
       property1: "2000 BC",
@@ -455,7 +455,7 @@ const newCards = [
       textD: "Glasperlen sind kleine, dekorative Objekte aus Glas, die häufig für Schmuck oder andere dekorative Gegenstände verwendet werden. Sie haben eine lange Geschichte und wurden in vielen Gesellschaften auf der ganzen Welt zu dekorativen und kulturellen Zwecken verwendet.",
     },
     {
-      backCard: "./images/backsite/backCard.png",
+      backCard: "./images/backsite/backCard_2.png",
       id: 20,
       property0: -1700,
       property1: "1700 AD",
@@ -478,7 +478,7 @@ const newCards = [
       textD: "Wampum war eine von den Indianerstämmen Nordamerikas verwendete Währung, die aus Muscheln hergestellt wurde. Es diente dem Handel, Gewerbe und zeremoniellen Zwecken und wurde aufgrund seiner Seltenheit und Qualität geschätzt. Obwohl es schließlich durch die europäische Währung ersetzt wurde, behält es nach wie vor eine wichtige Bedeutung in der Kultur der amerikanischen Ureinwohner.",
     },
     {
-      backCard: "./images/backsite/backCard.png",
+      backCard: "./images/backsite/backCard_2.png",
       id: 21,
       property0: 10000,
       property1: "10000 BC",
@@ -501,7 +501,7 @@ const newCards = [
       textD: "Diese Form des Geldes wurde aus den Zähnen von Säugetieren hergestellt und fand Verwendung in verschiedenen Teilen Amerikas, auf Neuguinea, den Fidschi-Inseln, den Salomon-Inseln, den Gilbert-Inseln und anderen Inseln des Südpazifiks .. Aufgrund ihrer Seltenheit bzw. der Schwierigkeit, sie zu beschaffen, waren sie als Zahlungsmittel geeignet.",
     },
     {
-      backCard: "./images/backsite/backCard.png",
+      backCard: "./images/backsite/backCard_2.png",
       id: 22,
       property0: 3000,
       property1: "3000 BC",
@@ -524,7 +524,7 @@ const newCards = [
       textD: "In den alten Zivilisationen war Getreide aufgrund seiner Rolle als Grundnahrungsmittel und seines relativ stabilen Wertes eine wertvolle Ware. Es wurde üblicherweise in großen Getreidespeichern gelagert und diente im Handel als Zahlungsmittel. Getreide konnte gegen andere Waren und Dienstleistungen eingetauscht oder zur Begleichung von Steuern oder Schulden verwendet werden.",
     },
     {
-      backCard: "./images/backsite/backCard.png",
+      backCard: "./images/backsite/backCard_2.png",
       id: 23,
       property0: -1200,
       property1: "1200 AD",
@@ -547,7 +547,7 @@ const newCards = [
       textD: "Rai-Steine sind große, runde Steinscheiben, die auf der Insel Yap im Pazifischen Ozean als Zahlungsmittel verwendet wurden. Sie wurden aus einer Art von Kalkstein hergestellt, der nur auf der Insel Palau vorkommt, die über 800 km von Yap entfernt liegt. Die Steine wurden in Steinbrüchen abgebaut und zu Scheiben unterschiedlicher Größe gehauen.",
     },
     {
-      backCard: "./images/backsite/backCard.png",
+      backCard: "./images/backsite/backCard_2.png",
       id: 24,
       property0: -1500,
       property1: "1500 AD",
@@ -570,7 +570,7 @@ const newCards = [
       textD: "Aggry-Perlen sind eine Art verzierter Glasperlen aus Ghana, die von den Westafrikanern als Schmuck für Halsketten, Armbänder und andere Schmuckstücke verwendet wurden. Die Perlen wurden im afrikanischen Handel als Tausch- und Zahlungsmittel verwendet.",
     },
     {
-      backCard: "./images/backsite/backCard.png",
+      backCard: "./images/backsite/backCard_2.png",
       id: 25,
       property0: 2000,
       property1: "2000 BC",
@@ -593,7 +593,7 @@ const newCards = [
       textD: "In den alten Zivilisationen wurden Edelmetalle wie Gold und Silber zu Schmuckstücken wie Ringen, Armbändern und Halsketten verarbeitet, die anschließend zum Erwerb von Waren und Dienstleistungen genutzt wurden. Schmuck hat als Geldform verschiedene Vorteile, darunter seinen subjektiven Wert, seine Langlebigkeit und seine Tragbarkeit.",
     },
     {
-      backCard: "./images/backsite/backCard.png",
+      backCard: "./images/backsite/backCard_2.png",
       id: 26,
       property0: -1252,
       property1: "1252",

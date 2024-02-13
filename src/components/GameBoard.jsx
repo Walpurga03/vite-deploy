@@ -17,6 +17,9 @@ const GameBoard = () => {
     // Lokale Zustände für Nachrichten und das Umdrehen der Computerkarte
     const [resultMessage, setResultMessage] = useState(null);
     const [flipComputerCard, setFlipComputerCard] = useState(true);
+    const [selectedProperty, setSelectedProperty] = useState(null);
+    const [selectedPropertyByComputer, setSelectedPropertyByComputer] = useState(null);
+
    
     // Sprache umschalten
     const handleToggleLanguage = () => {
@@ -24,14 +27,9 @@ const GameBoard = () => {
         dispatch(toggleLanguage());
     };
 
-    // Effekt, der eine Nachricht nach 10 Sekunden löscht
     useEffect(() => {
         if (resultMessage) {
-            const timer = setTimeout(() => {
-                setResultMessage(null);
-            }, 10000); 
-
-            return () => clearTimeout(timer);
+            console.log("Ergebnis aktualisiert und bereit zur Anzeige:", resultMessage);
         }
     }, [resultMessage]);
 
@@ -41,37 +39,55 @@ const GameBoard = () => {
         dispatch(startGame());
     };
 
-    // Behandelt das Klicken auf eine Eigenschaft. Zeigt die Computerkarte für 5 Sekunden
     const handlePropertyClick = (property) => {
-        console.log(`Eigenschaft ${property} ausgewählt, Computerkarte wird aufgedeckt.`);
+        console.log(`[handlePropertyClick] Eigenschaft ${property} wurde ausgewählt.`);
+    
         if (playerCards.length > 0 && computerCards.length > 0) {
+            console.log(`[handlePropertyClick] Beide Spieler haben Karten. Beginne mit dem Prozess.`);
+    
+            // Schritt 1: Computerkarte sofort aufdecken
             setFlipComputerCard(false);
+            console.log(`[handlePropertyClick] Computerkarte wird aufgedeckt.`);
+            setSelectedProperty(property);
+
+            // Schritt 2: Direkte Anzeige des Ergebnisses
+            const comparisonResult = compareCardProperties(playerCards[0], computerCards[0], property);
+            console.log(`[handlePropertyClick] Vergleich durchgeführt. Ergebnis: ${comparisonResult.result}`);
     
-            setTimeout(() => {
-                console.log(`Computerkarte wird zurückgedreht.`);
-                setFlipComputerCard(true);
-            }, 5000); // Setzt die Karte nach 5 Sekunden zurück
-    
-            // Vergleicht die Eigenschaften und setzt das Ergebnis
-            const result = compareCardProperties(playerCards[0], computerCards[0], property);
+            // Hier wird das Ergebnis sofort gesetzt
+            console.log("Setze ResultMessage mit:", comparisonResult);
             setResultMessage({
-                result: result,
+                result: comparisonResult.result,
                 property: property,
                 playerValue: playerCards[0][property],
                 computerValue: computerCards[0][property]
             });
-    
-            // Verzögerung, bevor die Logik zur Aktualisierung der Karten durchgeführt wird
-            setTimeout(() => {
-                // Dispatch der Aktion, um das Ergebnis des Vergleichs zu verarbeiten und die Karten zu aktualisieren
-                dispatch(compareCardProperties(playerCards[0], computerCards[0], property));
+            console.log("ResultMessage gesetzt:", resultMessage);
 
-                // Computerkarte zurückdrehen
+            // Schritt 3: Verzögern der Aktualisierung der Karten und des Zurückdrehens der Computerkarte
+            setTimeout(() => {
+                console.log(`[handlePropertyClick] Verzögerung abgelaufen. Bereite das Zurückdrehen der Computerkarte vor und aktualisiere die Karten.`);
+    
+                // Optional: Rückdrehen der Computerkarte, falls gewünscht, hier einfügen
                 setFlipComputerCard(true);
+    
+                // Aktualisierung der Karten im Zustand
+                dispatch(compareCardProperties(playerCards[0], computerCards[0], property));
+    
+                // Ergebnis ausblenden
+                setResultMessage(null);
+
+                setSelectedProperty(null);
+
+    
+                console.log(`[handlePropertyClick] Karten wurden aktualisiert und die Computerkarte wird zurückgedreht.`);
             }, 5000); // 5 Sekunden Verzögerung
+        } else {
+            console.log(`[handlePropertyClick] Einer der Spieler hat keine Karten mehr. Spiel könnte beendet sein.`);
         }
     };
-
+    
+    
     const handleComputerTurn = () => {
         // Stellen Sie sicher, dass Karten vorhanden sind
         if (computerCards.length > 0 && playerCards.length > 0) {
@@ -81,6 +97,9 @@ const GameBoard = () => {
             // Ermitteln der Eigenschaft, die der Computer wählt
             const selectedProperty = selectHighestPropertyForComputer(computerCards[0]);
     
+            // Aktualisiere den Zustand mit der ausgewählten Eigenschaft
+            setSelectedPropertyByComputer(selectedProperty);
+
             // Fügen Sie eine Verzögerung hinzu, um die Auswahl anzuzeigen und die Karte aufzudecken
             setTimeout(() => {
                 // Vergleich durchführen und das Ergebnis verarbeiten
@@ -120,7 +139,7 @@ const GameBoard = () => {
                                 {currentLanguage === 'DE' ? 'E' : 'D'}
                             </button>
                             <div className="player-cards">
-                                <div className="card-count">Spieler Karten: {playerCards.length}</div>
+                                <div className="card-count">Player-Card: {playerCards.length}</div>
                                 {playerCards.length > 0 && 
                                     <Card 
                                     card={playerCards[0]} 
@@ -134,19 +153,24 @@ const GameBoard = () => {
                             <div className='result'>
                                 <div className={`button-container ${isPlayerTurn ? 'hidden-button' : 'visible-button'}`}>
                                     {!isPlayerTurn && (
-                                        <button onClick={handleComputerTurn}>Computerzug</button>
+                                        <button onClick={handleComputerTurn}>Satoshi-Turn</button>
                                     )}
-                            </div>    
-                              {lastResult && (
+                            </div>  
+                            {selectedProperty && (
+                                <div className="selected-property">
+                                    Ausgewählte Eigenschaft: {selectedProperty}
+                                </div>
+                            )}  
+                              {/* {lastResult && (
                                   <div className="comparison-result">
                                     {lastSelectedProperty}<br/>
                                     {lastPlayerValue} vs {lastComputerValue}<br/>
                                     {lastResult}
                                 </div>
-                            )}
+                            )} */}
                             </div>
                             <div className="computer-cards">
-                                <div className="card-count">Computer Karten: {computerCards.length}</div>
+                                <div className="card-count">Sathoshi - Card: {computerCards.length}</div>
                                 {computerCards.length > 0 && 
                                     <Card 
                                     card={computerCards[0]}
