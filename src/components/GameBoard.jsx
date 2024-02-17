@@ -21,6 +21,7 @@ const GameBoard = () => {
     const [selectedPropertyByComputer, setSelectedPropertyByComputer] = useState(null);
     const [computerResult, setComputerResult] = useState('');
     const [computerSelectedProperty, setComputerSelectedProperty] = useState('');
+    const [moveCounter, setMoveCounter] = useState(0);
 
 
     const propertyLabels = {
@@ -38,7 +39,15 @@ const GameBoard = () => {
     };
 
     useEffect(() => {
+        if (lastResult) {
+            // Logik, um das Ergebnis anzuzeigen oder zu verarbeiten
+            console.log(lastResult);
+        }
+    }, [lastResult]);
+
+    useEffect(() => {
         if (resultMessage) {
+            console.log(resultMessage);
         }
     }, [resultMessage]);
 
@@ -47,21 +56,16 @@ const GameBoard = () => {
         dispatch(startGame());
     };
 
-
-
-
-
-
-
-
-
-
-
-
-
-
     const handlePropertyClick = (property) => {
+
+        setMoveCounter(prevCounter => prevCounter + 1);
     
+        console.log(`Move ${moveCounter + 1}: Dispatching compareCardProperties for Player`, {
+            playerCard: playerCards[0], 
+            computerCard: computerCards[0], 
+            selectedProperty
+        });
+
         if (playerCards.length > 0 && computerCards.length > 0) {
             // Schritt 1: Computerkarte sofort aufdecken
             setFlipComputerCard(false);
@@ -97,8 +101,17 @@ const GameBoard = () => {
         }
     };
     
-    
     const handleComputerTurn = () => {
+
+        setMoveCounter(prevCounter => prevCounter + 1);
+    
+        console.log(`Move ${moveCounter + 1}: Dispatching compareCardProperties for Computer`, {
+            playerCard: playerCards[0], 
+            computerCard: computerCards[0], 
+            selectedProperty
+        });
+
+        
         // Stellen Sie sicher, dass Karten vorhanden sind
         if (computerCards.length > 0 && playerCards.length > 0) {
             // Computerkarte aufdecken
@@ -125,7 +138,11 @@ const GameBoard = () => {
                 // Optional: Rückdrehen der Computerkarte, falls gewünscht, hier einfügen
                 setFlipComputerCard(true);
     
-                // Aktualisierung der Karten im Zustand
+                console.log('Dispatching compareCardProperties', {
+                    playerCard: playerCards[0], 
+                    computerCard: computerCards[0], 
+                    selectedProperty, 
+                });// Aktualisierung der Karten im Zustand
                 dispatch(compareCardProperties(playerCards[0], computerCards[0], selectedProperty));
     
                 // Ergebnis ausblenden
@@ -188,13 +205,6 @@ const GameBoard = () => {
                                     </p>
                                 </div>
                             )}  
-                              {lastResult && (
-                                  <div className="comparison-result">
-                                    {lastResult}<br/>
-                                    {lastSelectedProperty}<br/>
-                                    {lastPlayerValue} vs {lastComputerValue}<br/>
-                                </div>
-                            )}
                             </div>
                             <div className="computer-cards">
                                 <div className="card-count">Sathoshi: {computerCards.length}</div>
