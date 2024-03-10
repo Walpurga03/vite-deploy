@@ -38,18 +38,6 @@ const GameBoard = () => {
         dispatch(toggleLanguage());
     };
 
-    useEffect(() => {
-        if (lastResult) {
-            // Logik, um das Ergebnis anzuzeigen oder zu verarbeiten
-            console.log(lastResult);
-        }
-    }, [lastResult]);
-
-    useEffect(() => {
-        if (resultMessage) {
-            console.log(resultMessage);
-        }
-    }, [resultMessage]);
 
     // Startet das Spiel durch Dispatch eines Redux-Actions
     const handleStartGame = () => {
@@ -60,11 +48,6 @@ const GameBoard = () => {
 
         setMoveCounter(prevCounter => prevCounter + 1);
     
-        console.log(`Move ${moveCounter + 1}: Dispatching compareCardProperties for Player`, {
-            playerCard: playerCards[0], 
-            computerCard: computerCards[0], 
-            selectedProperty
-        });
 
         if (playerCards.length > 0 && computerCards.length > 0) {
             // Schritt 1: Computerkarte sofort aufdecken
@@ -104,12 +87,6 @@ const GameBoard = () => {
     const handleComputerTurn = () => {
 
         setMoveCounter(prevCounter => prevCounter + 1);
-    
-        console.log(`Move ${moveCounter + 1}: Dispatching compareCardProperties for Computer`, {
-            playerCard: playerCards[0], 
-            computerCard: computerCards[0], 
-            selectedProperty
-        });
 
         
         // Stellen Sie sicher, dass Karten vorhanden sind
@@ -138,11 +115,7 @@ const GameBoard = () => {
                 // Optional: Rückdrehen der Computerkarte, falls gewünscht, hier einfügen
                 setFlipComputerCard(true);
     
-                console.log('Dispatching compareCardProperties', {
-                    playerCard: playerCards[0], 
-                    computerCard: computerCards[0], 
-                    selectedProperty, 
-                });// Aktualisierung der Karten im Zustand
+              // Aktualisierung der Karten im Zustand
                 dispatch(compareCardProperties(playerCards[0], computerCards[0], selectedProperty));
     
                 // Ergebnis ausblenden
@@ -192,19 +165,33 @@ const GameBoard = () => {
                                 /> 
                                 }
                             </div>
+
+
+
                             <div className='result'>
                                 <div className={`button-container ${isPlayerTurn ? 'hidden-button' : 'visible-button'}`}>
                                     {!isPlayerTurn && (
                                         <button onClick={handleComputerTurn}>Satoshi-Turn</button>
                                     )}
                             </div>  
-                            {selectedProperty && (
-                                <div className="selected-property">
-                                    <p>
-                                        {propertyLabels[selectedProperty] || "Keine Eigenschaft ausgewählt"}
-                                    </p>
-                                </div>
-                            )}  
+                            {selectedProperty && resultMessage && (
+    <div className="selected-property">
+        <p>
+            {propertyLabels[selectedProperty] || "Keine Eigenschaft ausgewählt"}
+        </p>
+        <p>{resultMessage.playerValue} vs. {resultMessage.computerValue}</p>
+        {/* Bedingte Anzeige basierend auf dem Vergleich der Werte */}
+        {resultMessage.playerValue > resultMessage.computerValue ? (
+            <p>Gewonnen!</p>
+        ) : resultMessage.playerValue < resultMessage.computerValue ? (
+            <p>Verloren!</p>
+        ) : (
+            <p>draw!</p>
+        )}
+    </div>
+)}
+
+ 
                             </div>
                             <div className="computer-cards">
                                 <div className="card-count">Sathoshi: {computerCards.length}</div>
@@ -217,6 +204,7 @@ const GameBoard = () => {
                                     isPlayerCard={false}
                                 />
                                 }
+
                             </div>
                         </div>
                     ) : (
