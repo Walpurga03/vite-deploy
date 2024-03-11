@@ -175,20 +175,21 @@ const GameBoard = () => {
                                     )}
                             </div>  
                             {selectedProperty && resultMessage && (
-    <div className="selected-property">
-        <p>
-            {propertyLabels[selectedProperty] || "Keine Eigenschaft ausgewählt"}
-        </p>
-        <p>{resultMessage.playerValue} vs. {resultMessage.computerValue}</p>
-        {/* Bedingte Anzeige basierend auf dem Vergleich der Werte */}
-        {resultMessage.playerValue > resultMessage.computerValue ? (
-            <p>Gewonnen!</p>
-        ) : resultMessage.playerValue < resultMessage.computerValue ? (
-            <p>Verloren!</p>
-        ) : (
-            <p>draw!</p>
-        )}
-    </div>
+   <div className={`selected-property ${resultMessage.playerValue > resultMessage.computerValue ? 'result-win' : resultMessage.playerValue < resultMessage.computerValue ? 'result-lose' : 'result-draw'}`}>
+   <p>
+       {propertyLabels[selectedProperty] || "Keine Eigenschaft ausgewählt"}
+   </p>
+   <p>{resultMessage.playerValue} vs. {resultMessage.computerValue}</p>
+   {resultMessage.playerValue > resultMessage.computerValue ? (
+       <p className="result-highlight">Win!</p>
+   ) : resultMessage.playerValue < resultMessage.computerValue ? (
+       <p className="result-highlight">Lose!</p>
+   ) : (
+       <p className="result-highlight">Draw!</p>
+   )}
+</div>
+
+
 )}
 
  

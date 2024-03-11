@@ -127,4 +127,54 @@
     }
 }
 
+.selected-property {
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f2f2f2;
+    margin: 20px 0;
+    animation: fadeIn 1s ease-out;
+}
+
+.selected-property p {
+    margin: 10px 0;
+    font-size: 16px;
+    text-align: center;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Ergänzung zu den obigen Basisstilen */
+
+.result-win {
+    color: #4CAF50; /* Grün für Gewonnen */
+}
+
+.result-lose {
+    color: #F44336; /* Rot für Verloren */
+}
+
+.result-draw {
+    color: #FFC107; /* Gelb für Unentschieden */
+}
+
+.result-highlight {
+    font-weight: bold;
+    font-size: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    display: inline-block;
+    margin-top: 10px;
+}
+
+
   
