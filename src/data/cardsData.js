@@ -434,8 +434,8 @@ const newCards = [
     {
       backCard: "./images/backsite/backCard_2.png",
       id: 19,
-      property0: 2000,
-      property1: "2000 BC",
+      property0: -1500,
+      property1: "1500 AD",
       property1E: "Since",
       property1D: "Seit",
       property2: 2,
@@ -549,8 +549,8 @@ const newCards = [
     {
       backCard: "./images/backsite/backCard_2.png",
       id: 24,
-      property0: -1500,
-      property1: "1500 AD",
+      property0: 2000,
+      property1: "2000 BC",
       property1E: "Since",
       property1D: "Seit",
       property2: 3,

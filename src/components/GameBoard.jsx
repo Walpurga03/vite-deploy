@@ -65,6 +65,10 @@ const GameBoard = () => {
                 computerValue: computerCards[0][property]
             });
 
+             // Hier fügen Sie das console.log hinzu
+            console.log(`${property}->${playerCards[0][property]} vs ${computerCards[0][property]}`);
+   
+
             // Schritt 3: Verzögern der Aktualisierung der Karten und des Zurückdrehens der Computerkarte
             setTimeout(() => {
     
@@ -108,6 +112,10 @@ const GameBoard = () => {
                 playerValue: playerCards[0][selectedProperty],
                 computerValue: computerCards[0][selectedProperty]
             });
+
+            // Hier fügen Sie das console.log hinzu
+            console.log(`${selectedProperty}->${playerCards[0][selectedProperty]} vs ${computerCards[0][selectedProperty]}`);
+
 
             // Schritt 3: Verzögern der Aktualisierung der Karten und des Zurückdrehens der Computerkarte
             setTimeout(() => {
