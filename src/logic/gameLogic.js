@@ -19,7 +19,7 @@ export const dealCards = (shuffledCards) => {
 Anwendung: Wird aufgerufen, wenn der Spieler eine Eigenschaft auswählt, um sie mit der entsprechenden Eigenschaft der Computerkarte zu vergleichen. */
 export const compareCardProperties = (playerCard, computerCard, propertyName) => {
   const propertyNamesMapping = {
-      property0: 'Jahr',
+      property0: 'Seit',
       property1: 'Seit',
       property2: 'Knappheit',
       property3: 'Lebensdauer',

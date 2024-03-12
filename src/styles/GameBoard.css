@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 10em;
+    gap: 3em;
 }
 @media (max-width: 900px) {
     .game-container {

@@ -25,7 +25,7 @@ const GameBoard = () => {
 
 
     const propertyLabels = {
-        property0: "Jahr",
+        property0: "Seit",
         property1: "Seit",
         property2: "Knappheit",
         property3: "Lebensdauer",
@@ -165,9 +165,6 @@ const GameBoard = () => {
                                 /> 
                                 }
                             </div>
-
-
-
                             <div className='result'>
                                 <div className={`button-container ${isPlayerTurn ? 'hidden-button' : 'visible-button'}`}>
                                     {!isPlayerTurn && (
@@ -175,25 +172,24 @@ const GameBoard = () => {
                                     )}
                             </div>  
                             {selectedProperty && resultMessage && (
-   <div className={`selected-property ${resultMessage.playerValue > resultMessage.computerValue ? 'result-win' : resultMessage.playerValue < resultMessage.computerValue ? 'result-lose' : 'result-draw'}`}>
-   <p>
-       {propertyLabels[selectedProperty] || "Keine Eigenschaft ausgewählt"}
-   </p>
-   <p>{resultMessage.playerValue} vs. {resultMessage.computerValue}</p>
-   {resultMessage.playerValue > resultMessage.computerValue ? (
-       <p className="result-highlight">Win!</p>
-   ) : resultMessage.playerValue < resultMessage.computerValue ? (
-       <p className="result-highlight">Lose!</p>
-   ) : (
-       <p className="result-highlight">Draw!</p>
-   )}
-</div>
+                                <div className={`selected-property ${resultMessage.playerValue > resultMessage.computerValue ? 'result-win' : resultMessage.playerValue < resultMessage.computerValue ? 'result-lose' : 'result-draw'}`}>
+                                    <p>{propertyLabels[selectedProperty] || "Keine Eigenschaft ausgewählt"}</p>
+                                    {/* Zeige den direkten Vergleich nicht an, wenn die ausgewählte Eigenschaft "Seit" ist */}
+                                    {selectedProperty !== 'property0' && selectedProperty !== 'property1' && (
+                                        
+                                        <p>{resultMessage.playerValue} vs. {resultMessage.computerValue}</p>
+                                    )}
+                                    {resultMessage.playerValue > resultMessage.computerValue ? (
+                                        <p className="result-highlight">Win!</p>
+                                    ) : resultMessage.playerValue < resultMessage.computerValue ? (
+                                        <p className="result-highlight">Lose!</p>
+                                    ) : (
+                                        <p className="result-highlight">Draw!</p>
+                                    )}
+                                </div>
+                            )}
 
-
-)}
-
- 
-                            </div>
+                        </div>
                             <div className="computer-cards">
                                 <div className="card-count">Sathoshi: {computerCards.length}</div>
                                 {computerCards.length > 0 && 
