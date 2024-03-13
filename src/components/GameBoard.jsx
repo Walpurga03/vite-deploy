@@ -5,8 +5,10 @@ import { startGame, compareCardProperties } from '../redux/actions';
 import { selectHighestPropertyForComputer } from '../logic/gameLogic';
 import { toggleLanguage } from '../redux/actions';
 
+
 import Card from './Card';
 import '../styles/GameBoard.css';
+import StartAnimation from './StartAnimation';
 
 const GameBoard = () => {
     // Zustände und Daten aus dem Redux-Store holen
@@ -22,6 +24,9 @@ const GameBoard = () => {
     const [computerResult, setComputerResult] = useState('');
     const [computerSelectedProperty, setComputerSelectedProperty] = useState('');
     const [moveCounter, setMoveCounter] = useState(0);
+    const [animationPlayed, setAnimationPlayed] = useState(false);
+
+
 
 
     const propertyLabels = {
@@ -170,7 +175,7 @@ const GameBoard = () => {
                                     isClickable={isPlayerTurn} 
                                     currentLanguage={currentLanguage}
                                     isPlayerCard={true}
-                                /> 
+                                    /> 
                                 }
                             </div>
                             <div className='result'>
@@ -178,13 +183,11 @@ const GameBoard = () => {
                                     {!isPlayerTurn && (
                                         <button onClick={handleComputerTurn}>Satoshi-Turn</button>
                                     )}
-                            </div>  
-                            {selectedProperty && resultMessage && (
+                                </div>  
+                                {selectedProperty && resultMessage && (
                                 <div className={`selected-property ${resultMessage.playerValue > resultMessage.computerValue ? 'result-win' : resultMessage.playerValue < resultMessage.computerValue ? 'result-lose' : 'result-draw'}`}>
                                     <p>{propertyLabels[selectedProperty] || "Keine Eigenschaft ausgewählt"}</p>
-                                    {/* Zeige den direkten Vergleich nicht an, wenn die ausgewählte Eigenschaft "Seit" ist */}
                                     {selectedProperty !== 'property0' && selectedProperty !== 'property1' && (
-                                        
                                         <p>{resultMessage.playerValue} vs. {resultMessage.computerValue}</p>
                                     )}
                                     {resultMessage.playerValue > resultMessage.computerValue ? (
@@ -195,9 +198,8 @@ const GameBoard = () => {
                                         <p className="result-highlight">Draw!</p>
                                     )}
                                 </div>
-                            )}
-
-                        </div>
+                                )}
+                            </div>
                             <div className="computer-cards">
                                 <div className="card-count">Sathoshi: {computerCards.length}</div>
                                 {computerCards.length > 0 && 
@@ -209,11 +211,13 @@ const GameBoard = () => {
                                     isPlayerCard={false}
                                 />
                                 }
-
                             </div>
                         </div>
                     ) : (
-                        <button onClick={handleStartGame}>Start Game</button>
+                        <>
+                            <StartAnimation/>
+                            <button onClick={handleStartGame}>Start Game</button>
+                        </>
                     )}
                 </>
             )}
