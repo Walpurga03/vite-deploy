@@ -20,15 +20,12 @@ const GameBoard = () => {
     const [resultMessage, setResultMessage] = useState(null);
     const [flipComputerCard, setFlipComputerCard] = useState(true);
     const [selectedProperty, setSelectedProperty] = useState(null);
-    const [selectedPropertyByComputer, setSelectedPropertyByComputer] = useState(null);
-    const [computerResult, setComputerResult] = useState('');
-    const [computerSelectedProperty, setComputerSelectedProperty] = useState('');
     const [moveCounter, setMoveCounter] = useState(0);
-    const [animationPlayed, setAnimationPlayed] = useState(false);
+    const [isAnimationFinished, setIsAnimationFinished] = useState(false);
 
-
-
-
+    const handleAnimationEnd = () => {
+        setIsAnimationFinished(true);
+    };
     const propertyLabels = {
         property0: "Seit",
         property1: "Seit",
@@ -141,7 +138,6 @@ const GameBoard = () => {
         }
     };
     
-
     // Nachricht am Ende des Spiels
     let endGameMessage = "";
     if (gameOver) {
@@ -215,16 +211,16 @@ const GameBoard = () => {
                         </div>
                     ) : (
                         <>
-                            <StartAnimation/>
+                            <StartAnimation onAnimationEnd={handleAnimationEnd}/>
+                            {isAnimationFinished && (
                             <button onClick={handleStartGame}>Start Game</button>
+                            )}
                         </>
                     )}
                 </>
             )}
         </>
     );
-    
-    
 };
 
 export default GameBoard;
