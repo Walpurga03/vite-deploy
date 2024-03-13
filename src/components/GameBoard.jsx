@@ -9,6 +9,7 @@ import { toggleLanguage } from '../redux/actions';
 import Card from './Card';
 import '../styles/GameBoard.css';
 import StartAnimation from './StartAnimation';
+import EndAnimation from './EndAnimation';
 
 const GameBoard = () => {
     // Zustände und Daten aus dem Redux-Store holen
@@ -151,10 +152,9 @@ const GameBoard = () => {
     // Rendern des Spielbretts mit Karten, Ergebnissen und Steuerelementen
     return (
         <>
-            {gameOver ? (
-                <div className="end-game-message">
-                    {playerCards.length === 0 ? "Spiel verloren!" : "Spiel gewonnen!"}
-                </div>
+       
+             {gameOver ? (
+                 <EndAnimation playerWon={playerCards.length > 0} />
             ) : (
                 <>
                     {isGameStarted ? (
@@ -218,7 +218,7 @@ const GameBoard = () => {
                         </>
                     )}
                 </>
-            )}
+            )} 
         </>
     );
 };
