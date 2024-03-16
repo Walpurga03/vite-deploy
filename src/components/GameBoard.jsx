@@ -148,6 +148,7 @@ const GameBoard = () => {
             endGameMessage = "Spiel gewonnen!";
         }
     }
+    
 
     // Rendern des Spielbretts mit Karten, Ergebnissen und Steuerelementen
     return (
@@ -213,7 +214,12 @@ const GameBoard = () => {
                         <>
                             <StartAnimation onAnimationEnd={handleAnimationEnd}/>
                             {isAnimationFinished && (
-                            <button onClick={handleStartGame}>Start Game</button>
+                            <>
+                                <div className="rotate-device">
+                                    Bitte drehen Sie Ihr Gerät für die beste Ansicht.
+                                </div>
+                                <button onClick={handleStartGame}>Start Game</button>
+                            </>
                             )}
                         </>
                     )}

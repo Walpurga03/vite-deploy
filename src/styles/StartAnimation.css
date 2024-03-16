@@ -1,12 +1,13 @@
 section{
+    margin: 0;
+    width: 100vw;
     position: relative;
+    overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100vh;
     min-height: 100vh;
     background: #fff;
-    overflow: hidden;
 }
 section .text{
     position: relative;
