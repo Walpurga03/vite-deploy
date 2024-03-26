@@ -77,7 +77,11 @@
   }
   
   .card-flip.is-flipped {
-    transform: rotateY(180deg); /* Dreht die Karte um 180 Grad */
+    transform: rotateY(180deg); /* Standard */
+    -webkit-transform: rotateY(180deg); /* Chrome, Safari, Opera */
+    -moz-transform: rotateY(180deg); /* Firefox */
+    -ms-transform: rotateY(180deg); /* Internet Explorer */
+    -o-transform: rotateY(180deg); /* Alte Opera-Versionen */
   }
   
   .card-front, .card-back {

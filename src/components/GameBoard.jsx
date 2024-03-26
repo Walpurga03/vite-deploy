@@ -48,69 +48,53 @@ const GameBoard = () => {
     const handlePropertyClick = (property) => {
         setMoveCounter(prevCounter => prevCounter + 1);
         if (playerCards.length > 0 && computerCards.length > 0) {
-            // Schritt 1: Computerkarte sofort aufdecken
             setFlipComputerCard(false);
             setSelectedProperty(property);
-            // Schritt 2: Direkte Anzeige des Ergebnisses
             const comparisonResult = compareCardProperties(playerCards[0], computerCards[0], property);
-            // Hier wird das Ergebnis sofort gesetzt
             setResultMessage({
                 result: comparisonResult.result,
                 property: property,
                 playerValue: playerCards[0][property],
                 computerValue: computerCards[0][property]
             });
-             // Hier fügen Sie das console.log hinzu
             console.log(`${property}->${playerCards[0][property]} vs ${computerCards[0][property]}`);
-            // Schritt 3: Verzögern der Aktualisierung der Karten und des Zurückdrehens der Computerkarte
             setTimeout(() => {
-                setFlipComputerCard(true); // Starten Sie damit, die Karte zurückzudrehen
-            
+                setFlipComputerCard(true); 
                 setTimeout(() => {
-                    dispatch(compareCardProperties(playerCards[0], computerCards[0], property)); // Aktualisieren Sie die Karten nach einer weiteren kurzen Verzögerung
+                    dispatch(compareCardProperties(playerCards[0], computerCards[0], property)); 
                     setResultMessage(null);
                     setSelectedProperty(null);
-                }, 500); // Geben Sie der Umdreh-Animation genug Zeit, bevor Sie den Zustand aktualisieren
-            
-            }, 5000); // Warten Sie 5 Sekunden, bevor irgendwelche Aktionen gestartet werden
+                }, 500); 
+            }, 5000); 
             
         }
     };
     const handleComputerTurn = () => {
-        setIsButtonClickable(false); // Button deaktivieren
+        setIsButtonClickable(false);
         setMoveCounter(prevCounter => prevCounter + 1);
-        // Stellen Sie sicher, dass Karten vorhanden sind
         if (computerCards.length > 0 && playerCards.length > 0) {
-            // Computerkarte aufdecken
             setFlipComputerCard(false);
-            // Ermitteln der Eigenschaft, die der Computer wählt
             const selectedProperty = selectHighestPropertyForComputer(computerCards[0]);
             setSelectedProperty(selectedProperty);
-            // Schritt 2: Direkte Anzeige des Ergebnisses
             const comparisonResult = compareCardProperties(playerCards[0], computerCards[0], selectedProperty);
-            // Hier wird das Ergebnis sofort gesetzt
             setResultMessage({
                 result: comparisonResult.result,
                 property: selectedProperty,
                 playerValue: playerCards[0][selectedProperty],
                 computerValue: computerCards[0][selectedProperty]
             });
-            // Hier fügen Sie das console.log hinzu
-            console.log(`${selectedProperty}->${playerCards[0][selectedProperty]} vs ${computerCards[0][selectedProperty]}`);
-            // Schritt 3: Verzögern der Aktualisierung der Karten und des Zurückdrehens der Computerkarte
             setTimeout(() => {
-                setFlipComputerCard(true); // Starten Sie damit, die Karte zurückzudrehen
-            
+                setFlipComputerCard(true);
                 setTimeout(() => {
                     dispatch(compareCardProperties(playerCards[0], computerCards[0], selectedProperty)); // Aktualisieren Sie die Karten nach einer weiteren kurzen Verzögerung
                     setResultMessage(null);
                     setSelectedProperty(null);
-                }, 500); // Geben Sie der Umdreh-Animation genug Zeit, bevor Sie den Zustand aktualisieren
-                setIsButtonClickable(true); // Button wieder aktivieren
-            }, 5000); // Warten Sie 5 Sekunden, bevor irgendwelche Aktionen gestartet werden
+                }, 500); 
+                setIsButtonClickable(true); 
+                console.log(`[Computerzug] Ausgewählte Eigenschaft: ${selectedProperty}, Spielerwert: ${playerCards[0][selectedProperty]}, Computerwert: ${computerCards[0][selectedProperty]}`);
+            }, 5000); 
         }
     };
-    // Nachricht am Ende des Spiels
     let endGameMessage = "";
     if (gameOver) {
         if (playerCards.length === 0) {
@@ -119,7 +103,16 @@ const GameBoard = () => {
             endGameMessage = "Spiel gewonnen!";
         }
     }
-    // Rendern des Spielbretts mit Karten, Ergebnissen und Steuerelementen
+
+    function formatValue(value, selectedProperty) {
+        if (selectedProperty === 'property0') {
+          // Kehrt das Vorzeichen nur um, wenn "Seit" (property1) ausgewählt ist
+          return value < 0 ? "+" + (value)*-1 : "-" + Math.abs(value); // "+" vor negativen Werten, "-" vor positiven Werten
+        }
+        return value; // Gibt den Wert unverändert zurück, wenn nicht "Seit" ausgewählt ist
+      }
+      
+      
     return (
         <>
              {gameOver ? (
@@ -143,28 +136,39 @@ const GameBoard = () => {
                                     /> 
                                 }
                             </div>
+
                             <div className='result'>
-                                <div className={`button-container ${isPlayerTurn ? 'hidden-button' : 'visible-button'}`}>
-                                    {!isPlayerTurn && (
-                                        <button onClick={handleComputerTurn} disabled={!isButtonClickable}>Satoshi-Turn</button>
-                                    )}
-                                </div>  
-                                {selectedProperty && resultMessage && (
-                                <div className={`selected-property ${resultMessage.playerValue > resultMessage.computerValue ? 'result-win' : resultMessage.playerValue < resultMessage.computerValue ? 'result-lose' : 'result-draw'}`}>
-                                    <p>{propertyLabels[selectedProperty] || "Keine Eigenschaft ausgewählt"}</p>
-                                    {selectedProperty !== 'property0' && selectedProperty !== 'property1' && (
-                                        <p>{resultMessage.playerValue} vs. {resultMessage.computerValue}</p>
-                                    )}
-                                    {resultMessage.playerValue > resultMessage.computerValue ? (
-                                        <p className="result-highlight">Win!</p>
-                                    ) : resultMessage.playerValue < resultMessage.computerValue ? (
-                                        <p className="result-highlight">Lose!</p>
-                                    ) : (
-                                        <p className="result-highlight">Draw!</p>
-                                    )}
-                                </div>
-                                )}
-                            </div>
+    <div className={`button-container ${isPlayerTurn ? 'hidden-button' : 'visible-button'}`}>
+        {!isPlayerTurn && (
+            <button onClick={handleComputerTurn} disabled={!isButtonClickable}>Satoshi-Turn</button>
+        )}
+    </div>  
+    {selectedProperty && resultMessage && (
+    <div className={`selected-property ${resultMessage.playerValue > resultMessage.computerValue ? 'result-win' : resultMessage.playerValue < resultMessage.computerValue ? 'result-lose' : 'result-draw'}`}>
+        <p>{propertyLabels[selectedProperty] || "Keine Eigenschaft ausgewählt"}</p>
+       
+       
+
+   
+        <p>{
+            formatValue(resultMessage.playerValue, selectedProperty) + 
+            " vs. " + 
+            formatValue(resultMessage.computerValue, selectedProperty)
+        }</p>
+
+        
+        {resultMessage.playerValue > resultMessage.computerValue ? (
+            <p className="result-highlight">Win!</p>
+        ) : resultMessage.playerValue < resultMessage.computerValue ? (
+            <p className="result-highlight">Lose!</p>
+        ) : (
+            <p className="result-highlight">Draw!</p>
+        )}
+    </div>
+    )}
+</div>
+
+
                             <div className="computer-cards">
                                 <div className="card-count">Sathoshi: {computerCards.length}</div>
                                 {computerCards.length > 0 && 

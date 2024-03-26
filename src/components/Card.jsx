@@ -99,12 +99,16 @@ const Card = ({ card, onPropertyClick, isClickable, currentLanguage, isPlayerCar
                 <div className="card-front">
                     <img className="card-image" src={card.image} alt="Card" />
                     {renderProperties()}
-                    <div className="card-text">
-                        <button onClick={toggleText}>{showFullText ? 'less' : 'more'}</button>
-                        <div className="card-text-bubble">
-                            <p className='card-text-p'>{showFullText ? text : `${text.substring(0, 25)}...`}</p>
-                        </div>
+
+                    {isPlayerCard && (
+                        <div className="card-text">
+                    <button onClick={toggleText}>{showFullText ? 'Less' : 'More'}</button>
+                    <div className="card-text-bubble">
+                        <p className='card-text-p'>{showFullText ? text : `${text.substring(0, 25)}...`}</p>
                     </div>
+                        </div>
+                    )}
+
                 </div>
                 <div className="card-back">
                     <img className="card-image" src={card.backCard} alt="Card Back" />
