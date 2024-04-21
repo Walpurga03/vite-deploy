@@ -298,8 +298,6 @@
     top: 0;          // Setzt es an den oberen Rand des Bildschirmbereichs
     left: 0;         // Setzt es an den linken Rand des Bildschirmbereichs
     z-index: 1000;   // Stellt sicher, dass es über anderen Inhalten liegt
-  
-    
   }
 
 
@@ -313,6 +311,9 @@
   }
   
   .last-turn {
+    background: $primary-color-dark;
+    border-radius: 0.4em;
+    padding: 0.2em;
     white-space: nowrap;
     overflow: hidden;
     position: relative;

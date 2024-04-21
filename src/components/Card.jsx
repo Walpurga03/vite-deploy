@@ -94,10 +94,10 @@ const Card = ({ card, onPropertyClick, isClickable, isPlayerCard, className, sho
 
                     {isPlayerCard && (
                         <div className="card-text">
-                    <button className="button" onClick={toggleText}>{showFullText ? 'Weniger' : 'Mehr'}</button>
-                    <div className="card-text-bubble">
-                        <p className='card-text-p'>{showFullText ? text : `${text.substring(0, 25)}...`}</p>
-                    </div>
+                            <button className="button" onClick={toggleText}>{showFullText ? 'Weniger' : 'Mehr'}</button>
+                            <div className="card-text-bubble">
+                                <p className='card-text-p'>{showFullText ? text : `${text.substring(0, 25)}...`}</p>
+                            </div>
                         </div>
                     )}
 

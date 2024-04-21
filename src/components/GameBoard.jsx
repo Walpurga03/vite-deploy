@@ -60,8 +60,8 @@ const GameBoard = () => {
                 playerValue: playerCards[0][property],
                 computerValue: computerCards[0][property]
             });
-            console.log(`[Spielerzug] ${propertyLabels[property]}->${playerCards[0][property]} vs ${computerCards[0][property]}`);
-            setLastTurn(`Letzter Zug: ${propertyLabels[property]}->${playerCards[0][property]} vs ${computerCards[0][property]}`);
+            console.log(`[Spielerzug] ${propertyLabels[property]} : ${playerCards[0][property]} vs ${computerCards[0][property]}`);
+            setLastTurn(`Letzter Zug: ${propertyLabels[property]} : ${playerCards[0][property]} vs ${computerCards[0][property]}`);
 
             setTimeout(() => {
                 setFlipComputerCard(true); 
@@ -96,8 +96,9 @@ const GameBoard = () => {
                     setResultMessage(null);
                     setSelectedProperty(null);
                     setIsButtonClickable(true);
-                    console.log(`[Computer Zug] ${propertyLabels[selectedProperty]}->${playerCards[0][selectedProperty]} vs ${computerCards[0][selectedProperty]}`);
-                    setLastTurn(`Letzter Zug: ${propertyLabels[selectedProperty]}->${playerCards[0][selectedProperty]} vs ${computerCards[0][selectedProperty]}`);
+                    
+                    console.log(`[Computer Zug] ${propertyLabels[selectedProperty]} : ${playerCards[0][selectedProperty]} vs ${computerCards[0][selectedProperty]}`);
+                    setLastTurn(`Letzter Zug: ${propertyLabels[selectedProperty]} : ${playerCards[0][selectedProperty]} vs ${computerCards[0][selectedProperty]}`);
                 }, 500);
             }, 5000);
         }
