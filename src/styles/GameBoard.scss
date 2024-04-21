@@ -235,6 +235,18 @@
     color: $secondary-color;
     display: flex;
     justify-content: center; /* Zentriert den Inhalt horizontal */
+    font-size: 1.5em;
+    font-weight: 800;
+    padding-left: 0.8em;
+    padding-bottom: 0.2em;
+    }
+
+
+    .background{
+        background-image: url('/images/background/background-1.png'); // Pfad zum Hintergrundbild anpassen
+        background-size: cover; // Stellt sicher, dass das Bild den gesamten Container bedeckt
+        background-position: center; // Zentriert das Bild im Container
+        background-repeat: no-repeat;
     }
 
   .start-button-container {
@@ -242,6 +254,65 @@
     justify-content: center; 
     align-items: center; 
     height: 100vh; 
+    box-shadow: 5px 5px 5px 5px $secondary-color;
+    animation: blink 1s linear infinite;
+  }
+  .satoshi-button{
+    animation: blink-satoshi-button 2s linear infinite;
+  }
+
+  @keyframes blink-satoshi-button {
+    0%, 100% { box-shadow: 0 0 30px $secondary-color-dark; }
+    50% { box-shadow: none; }
+   
+  }
+  @keyframes blink {
+    0% { opacity: 1; }
+    25% { opacity: 1; }
+    48% {opacity: 0;}
+    50% { opacity: 1; }
+    100% { opacity: 1; }
+  }
+
+  info-image-container {
+    position: absolute; // Oder relative, je nach Layout
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10; // Stelle sicher, dass es über anderen Elementen liegt
+  
+    img {
+      max-width: 100%;
+      height: auto;
+      // Weitere Stile, um es gut aussehen zu lassen
+    }
+  }
+
+
+  @keyframes marquee {
+    from {
+      transform: translateX(300%);
+    }
+    to {
+      transform: translateX(-100%);
+    }
   }
   
+  .last-turn {
+    white-space: nowrap;
+    overflow: hidden;
+    position: relative;
+    width: 50%;
+    height: 1em; // oder die Höhe, die du brauchst
+    margin: 2em auto 0 ;
+    font-size: 1.5em;
+  
+    &::after {
+      content: attr(data-last-turn); // Nutzt ein Data-Attribut für den Text
+      position: absolute;
+      animation: marquee 10s linear infinite; // 10 Sekunden für eine komplette Laufzeit
+    }
+  }
+  
+
  

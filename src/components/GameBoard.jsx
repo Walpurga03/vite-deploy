@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { startGame, compareCardProperties } from '../redux/actions';
 import { selectHighestPropertyForComputer } from '../logic/gameLogic';
+import infoImage from '/images/info/info.png';
 
 import Card from './Card';
 import '../styles/main.scss';
@@ -21,7 +22,14 @@ const GameBoard = () => {
     const [moveCounter, setMoveCounter] = useState(0);
     const [isAnimationFinished, setIsAnimationFinished] = useState(false);
     const [isButtonClickable, setIsButtonClickable] = useState(true);
+    const [isInfoVisible, setIsInfoVisible] = useState(true);
+    const [lastTurn, setLastTurn] = useState('');
 
+
+
+    const hideInfo = () => {
+        setIsInfoVisible(false);
+    };
 
     const handleAnimationEnd = () => {
         setIsAnimationFinished(true);
@@ -40,6 +48,7 @@ const GameBoard = () => {
     };
 
     const handlePropertyClick = (property) => {
+        setIsInfoVisible(false);
         setMoveCounter(prevCounter => prevCounter + 1);
         if (playerCards.length > 0 && computerCards.length > 0) {
             setFlipComputerCard(false);
@@ -51,7 +60,9 @@ const GameBoard = () => {
                 playerValue: playerCards[0][property],
                 computerValue: computerCards[0][property]
             });
-            console.log(`[Spielerzug] ${property}->${playerCards[0][property]} vs ${computerCards[0][property]}`);
+            console.log(`[Spielerzug] ${propertyLabels[property]}->${playerCards[0][property]} vs ${computerCards[0][property]}`);
+            setLastTurn(`Letzter Zug: ${propertyLabels[property]}->${playerCards[0][property]} vs ${computerCards[0][property]}`);
+
             setTimeout(() => {
                 setFlipComputerCard(true); 
                 setTimeout(() => {
@@ -84,12 +95,14 @@ const GameBoard = () => {
                     dispatch(compareCardProperties(playerCards[0], computerCards[0], selectedProperty));
                     setResultMessage(null);
                     setSelectedProperty(null);
-                }, 500); 
-                setIsButtonClickable(true); 
-                console.log(`[Computerzug] -> ${selectedProperty} ->${playerCards[0][selectedProperty]} vs ${computerCards[0][selectedProperty]}`);
-            }, 5000); 
+                    setIsButtonClickable(true);
+                    console.log(`[Computer Zug] ${propertyLabels[selectedProperty]}->${playerCards[0][selectedProperty]} vs ${computerCards[0][selectedProperty]}`);
+                    setLastTurn(`Letzter Zug: ${propertyLabels[selectedProperty]}->${playerCards[0][selectedProperty]} vs ${computerCards[0][selectedProperty]}`);
+                }, 500);
+            }, 5000);
         }
     };
+    
 
     let endGameMessage = "";
         if (gameOver) {
@@ -111,8 +124,16 @@ const GameBoard = () => {
                  <EndAnimation playerWon={playerCards.length > 0} />
             ) : (
                 <>
+                 {lastTurn && (
+                    <div className="last-turn" data-last-turn={lastTurn}></div>
+                )}
                     {isGameStarted ? (
                         <div className="game-container">
+                             {isInfoVisible && (
+                                <div className="info-image-container" onClick={hideInfo}>
+                                    <img src={infoImage} alt="Wähle deine Stärke!" />
+                                </div>
+                            )}
                             <div className="player-cards">
                                 <div className="card-count">Spieler  {playerCards.length}</div>
                                 {playerCards.length > 0 && 
@@ -120,14 +141,15 @@ const GameBoard = () => {
                                     card={playerCards[0]} 
                                     onPropertyClick={handlePropertyClick}
                                     isClickable={isPlayerTurn} 
+                                    className={!isPlayerTurn ? 'card-disabled' : ''}
                                     isPlayerCard={true}
                                     /> 
                                 }
                             </div>
                             <div className='result'>
                                 <div className={`button-container ${isPlayerTurn ? 'hidden-button' : 'visible-button'}`}>
-                                    {!isPlayerTurn && (
-                                    <button className="button" onClick={handleComputerTurn} disabled={!isButtonClickable}>Satoshi-Auswahl</button>
+                                {!isPlayerTurn && !resultMessage && (
+                                    <button className="button satoshi-button" onClick={handleComputerTurn} disabled={!isButtonClickable}>Satoshi-Auswahl</button>
                                     )}
                                 </div>  
                                 {selectedProperty && resultMessage && (
@@ -170,8 +192,10 @@ const GameBoard = () => {
                                 <div className="rotate-device">
                                     Bitte drehen Sie Ihr Gerät für die beste Ansicht.
                                 </div>
-                                <div className='start-button-container'>
-                                    <button className="button" onClick={handleStartGame}>Spiel Starten</button>
+                                <div className="background">
+                                    <div className='start-button-container'>
+                                        <button className="button" onClick={handleStartGame}>Spiel Starten</button>
+                                    </div>
                                 </div>
                             </>
                             )}

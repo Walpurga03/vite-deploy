@@ -57,11 +57,11 @@ const StartAnimation = ({ onAnimationEnd }) => {
     ));
 
     return (
-        <div className="welcome-animation" style={{display: isAnimationComplete ? 'none' : 'block'}}>
-            <section>
-                <h2 className='text'>{characters}</h2>
-            </section>    
-        </div>
+            <div className="welcome-animation" style={{display: isAnimationComplete ? 'none' : 'block'}}>
+                <section>
+                    <h2 className='text'>{characters}</h2>
+                </section>    
+            </div>
     );
 };
 

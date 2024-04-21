@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import "../styles/main.scss";
 import RatingScale from './RatingScale';
 
-const Card = ({ card, onPropertyClick, isClickable, isPlayerCard, shouldFlip  }) => {
+const Card = ({ card, onPropertyClick, isClickable, isPlayerCard, className, shouldFlip  }) => {
     const [isFlipped, setIsFlipped] = useState(!isPlayerCard);
     const [showFullText, setShowFullText] = useState(false); 
 
@@ -85,6 +85,7 @@ const Card = ({ card, onPropertyClick, isClickable, isPlayerCard, shouldFlip  })
     };
     
     return (
+        <div className={`card ${className}`} onClick={handleCardClick}>
         <div className="card-container" onClick={handleCardClick}>
             <div className={`card-flip ${isFlipped ? 'is-flipped' : ''}`}>
                 <div className="card-front">
@@ -102,9 +103,10 @@ const Card = ({ card, onPropertyClick, isClickable, isPlayerCard, shouldFlip  })
 
                 </div>
                 <div className="card-back">
-                    <img className="card-image" src={card.backCard} alt="Card Back" />
+                    <img className="card-image-back" src={card.backCard} alt="Card Back" />
                 </div>
             </div>
+        </div>
         </div>
     );
 };

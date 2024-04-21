@@ -7,9 +7,15 @@
     border-top-right-radius: 5px;
 }
 
+.card-image-back{
+    width: 100%; /* Passt die Bildbreite an die Kartenbreite an */
+    height: 100%; /* Hält das Seitenverhältnis bei */
+    border-radius: 1em;
+}
+
 .card-ul {
     list-style: none; /* Entfernt Aufzählungszeichen */
-    font-size: 1em; /* Schriftgröße */
+    font-size: 1.1em; /* Schriftgröße */
     background-color: $primary-color;
     padding-left: 0;
 }
@@ -18,12 +24,10 @@
     margin-left: -10.5em;
 }
 
-    
-
 .card-li {
     margin-bottom: 5px; /* Abstand zwischen Listenelementen */
     padding-left: 5px;
-    font-weight: bold; /* Macht den Text fett */
+    font-weight: 800; /* Macht den Text fett */
     display: flex;
     color: $secondary-color;
     align-items: center;
@@ -139,6 +143,10 @@
     border-style: solid;
     border-color: transparent transparent $primary-color-dark transparent;
 }
+
+.card-disabled {
+    pointer-events: none;
+  }
 
 
 
