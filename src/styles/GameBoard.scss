@@ -273,11 +273,16 @@
     50% { opacity: 1; }
     100% { opacity: 1; }
   }
+  .info-box{
+    position: absolute;
+    top: 0%;
+    left: 25%;
+  }
 
-  info-image-container {
-    position: absolute; // Oder relative, je nach Layout
+  .info-image-container {
+    position: relative; // Oder relative, je nach Layout
     top: 0;
-    left: 50%;
+    left: 0;
     transform: translateX(-50%);
     z-index: 10; // Stelle sicher, dass es über anderen Elementen liegt
   

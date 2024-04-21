@@ -129,11 +129,6 @@ const GameBoard = () => {
                 )}
                     {isGameStarted ? (
                         <div className="game-container">
-                             {isInfoVisible && (
-                                <div className="info-image-container" onClick={hideInfo}>
-                                    <img src={infoImage} alt="Wähle deine Stärke!" />
-                                </div>
-                            )}
                             <div className="player-cards">
                                 <div className="card-count">Spieler  {playerCards.length}</div>
                                 {playerCards.length > 0 && 
@@ -145,6 +140,13 @@ const GameBoard = () => {
                                     isPlayerCard={true}
                                     /> 
                                 }
+                            </div>
+                            <div className='info-box'>
+                                {isInfoVisible && (
+                                    <div className="info-image-container" onClick={hideInfo}>
+                                        <img src={infoImage} alt="Wähle deine Stärke!" />
+                                    </div>
+                                )}
                             </div>
                             <div className='result'>
                                 <div className={`button-container ${isPlayerTurn ? 'hidden-button' : 'visible-button'}`}>
