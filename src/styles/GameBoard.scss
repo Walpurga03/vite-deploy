@@ -1,7 +1,7 @@
 @import 'variables';
 
 .game-container {
-    padding: 10em 10em 0 10em;
+    padding: 13em 10em 0 10em;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,37 +17,57 @@
 @media (max-width: 800px) {
    .game-container{
     transform: scale(0.8);
-   }
+    }
+    .info-box{
+      margin-top: -5em;
+      margin-left: -5em;
+    }
 }
 @media (max-width: 700px) {
    .game-container{
-    padding: 0.7em 0.7em 0 0.7em;
+    padding: 10em 0.7em 0 0.7em;
     transform: scale(0.7);
    }
 }
 @media (max-width: 600px) {
    .game-container{
-    padding: 0.6em 0.6em 0 0.6em;
+    padding: 5em 0.6em 0 0.6em;
     transform: scale(0.6);
    }
+   .info-box{
+    margin-top: -10em;
+    margin-left: -10em;
+  }
 }
 @media (max-width: 500px) {
    .game-container{
-    padding: 0.5em 0.5em 0 0.5em;
+    padding: 5em 0.5em 0 0.5em;
     transform: scale(0.5);
    }
+   .info-box{
+    margin-top: -18em;
+    margin-left: -14em;
+  }
 }
 @media (max-width: 400px) {
    .game-container{
     padding: 0.4em 0.4em 0 0.4em;
     transform: scale(0.4);
    }
+   .info-box{
+    margin-top: -23em;
+    margin-left: -15em;
+  }
 }
 @media (max-width: 300px) {
    .game-container{
     padding: 0.3em 0.3em 0 0.3em;
     transform: scale(0.3);
    }
+   .info-box{
+    margin-top: -35em;
+    margin-left: -15em;
+  }
 }
 
 .button-container {
@@ -249,14 +269,22 @@
         background-repeat: no-repeat;
     }
 
-  .start-button-container {
-    display: flex;
-    justify-content: center; 
-    align-items: center; 
-    height: 100vh; 
-    box-shadow: 5px 5px 5px 5px $secondary-color;
-    animation: blink 1s linear infinite;
+    .start-button-container {
+      display: flex;
+      justify-content: center; 
+      align-items: center; 
+      height: 100vh;
+      animation: blink 2s linear infinite;
+      will-change: opacity; // Optimiert für Opazitätsänderungen
   }
+
+  @keyframes blink {
+    0%, 100% { opacity: 0; }
+    25%, 75% { opacity: 1; }
+  }
+  
+
+
   .satoshi-button{
     animation: blink-satoshi-button 2s linear infinite;
   }
@@ -266,31 +294,14 @@
     50% { box-shadow: none; }
    
   }
-  @keyframes blink {
-    0% { opacity: 1; }
-    25% { opacity: 1; }
-    48% {opacity: 0;}
-    50% { opacity: 1; }
-    100% { opacity: 1; }
-  }
-  .info-box{
-    position: absolute;
-    top: 0%;
-    left: 25%;
-  }
-
-  .info-image-container {
-    position: relative; // Oder relative, je nach Layout
-    top: 0;
-    left: 0;
-    transform: translateX(-50%);
-    z-index: 10; // Stelle sicher, dass es über anderen Elementen liegt
   
-    img {
-      max-width: 100%;
-      height: auto;
-      // Weitere Stile, um es gut aussehen zu lassen
-    }
+  .info-box {
+    position: fixed; // Fixiert das Element auf dem Bildschirm
+    top: 0;          // Setzt es an den oberen Rand des Bildschirmbereichs
+    left: 0;         // Setzt es an den linken Rand des Bildschirmbereichs
+    z-index: 1000;   // Stellt sicher, dass es über anderen Inhalten liegt
+  
+    
   }
 
 
