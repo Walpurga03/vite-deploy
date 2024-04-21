@@ -1,45 +1,43 @@
+@import 'variables';
+
 .card-image {
-    width: 100.1%; /* Passt die Bildbreite an die Kartenbreite an */
+    width: 100%; /* Passt die Bildbreite an die Kartenbreite an */
     height: auto; /* Hält das Seitenverhältnis bei */
-    border-radius: 20px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
 
 .card-ul {
     list-style: none; /* Entfernt Aufzählungszeichen */
-    padding: 0; /* Entfernt Padding */
-    font-size: 16px; /* Schriftgröße */
+    font-size: 1em; /* Schriftgröße */
+    background-color: $primary-color;
+    padding-left: 0;
 }
 
-.card-ul {
-    list-style: none; /* Entfernt die Listensymbole */
-    padding: 10px; /* Fügt Innenabstand hinzu */
+.card-property1 {
+    margin-left: -10.5em;
 }
+
+    
 
 .card-li {
     margin-bottom: 5px; /* Abstand zwischen Listenelementen */
+    padding-left: 5px;
     font-weight: bold; /* Macht den Text fett */
     display: flex;
+    color: $secondary-color;
     align-items: center;
     justify-content: space-between; /* Verteilt die Inhalte */
     width: 100%; /* Stellt sicher, dass das li-Element die volle Breite einnimmt */
     cursor: pointer; /* Verändert den Cursor beim Hover */
 }
-.card-li-since {
-    margin-bottom: 5px; /* Abstand zwischen Listenelementen */
-    font-weight: bold; /* Macht den Text fett */
-    display: flex;
-    align-items: center;
-    justify-content: center; /* Verteilt die Inhalte */
-    width: 100%; /* Stellt sicher, dass das li-Element die volle Breite einnimmt */
-    cursor: pointer; /* Verändert den Cursor beim Hover */
-}
 
-.card-li:hover{
-    background-color: #f0f0f0; /* Hintergrundfarbe beim Hover */
-}
-.card-li-since:hover {
-    background-color: #f0f0f0; /* Hintergrundfarbe beim Hover */
-}
+@media (hover: hover) {
+    .card-li:hover {
+        background-color: $secondary-color; 
+        color: $primary-color; 
+    }
+  }
 
 .scale-point {
     display: inline-block;
@@ -56,8 +54,8 @@
 
 .card-container {
     width: 330px;
-    height: 488px;
-    border-radius: 2em;
+    height: 450px;
+    border-radius: 1em;
     perspective: 1000px;
     transition: box-shadow 0.6s, border 0.6s; /* Optional: fügt eine Übergangseffekt hinzu */
 }
@@ -111,20 +109,24 @@
 
 /* Schatten und Rand nur anzeigen, wenn NICHT umgedreht */
 .card-flip:not(.is-flipped) .card-front {
-    border: solid 5px rgb(50, 48, 50);
-    box-shadow: 5px 5px 5px grey;
-    border-radius: 2em;
+    border: solid 7px $secondary-color;
+    box-shadow: 5px 5px 5px $secondary-color-light;
+    border-radius: 1em;
+}
+.card-text{
+    margin: 0 auto;
+    text-align: center;
 }
 
 /* Grundlegendes Design der Sprechblase */
 .card-text-bubble {
     position: relative;
-    background: #f0f0f0;
+    background: $primary-color-dark;
     border-radius: 4px;
     padding: 10px 20px;
-    color: #333;
+    color: $secondary-color-light;
     max-width: 80%;
-    margin: 10px auto;
+    margin: 15px auto;
 }
 
 /* Kleiner Pfeil an der Sprechblase */
@@ -132,10 +134,12 @@
     content: "";
     position: absolute;
     bottom: 100%;  /* Position direkt unter der Sprechblase */
-    left: 20px;    /* Positionierung des Pfeils entlang der horizontalen Achse */
+    left: 47%;  /* Positionierung des Pfeils entlang der horizontalen Achse */
     border-width: 10px;
     border-style: solid;
-    border-color: transparent transparent #f0f0f0 transparent;
+    border-color: transparent transparent $primary-color-dark transparent;
 }
+
+
 
   

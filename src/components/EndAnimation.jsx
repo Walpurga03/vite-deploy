@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import anime from 'animejs/lib/anime.es.js';
-import '../styles/EndAnimation.css';
+import '../styles/main.scss';
 import cardsData from '../data/cardsData';
 
 
@@ -54,7 +54,7 @@ const EndAnimation = ({ playerWon }) => {
   
   return (
     <div className='endAnimBody' ref={containerRef} style={{ background: backgroundColor }}>
-      <h2 style={{ color: messageColor }}><span>Monay Wars<br></br></span>{message}</h2>
+      <h2 style={{ color: messageColor }}><span>Money Wars<br></br></span>{message}</h2>
     </div>
   );
 };

@@ -1,0 +1,37 @@
+// Hauptfarben
+$primary-color: #fff;
+$secondary-color: #000;
+
+// Hellere Varianten
+$primary-color-light: lighten($primary-color, 20%);
+$secondary-color-light: lighten($secondary-color, 20%);
+
+// Dunklere Varianten
+$primary-color-dark: darken($primary-color, 20%);
+$secondary-color-dark: darken($secondary-color, 20%);
+
+// Variablen für Button-Stile
+$button-padding: 0.5em 1em; // Beispielpolsterung
+
+// Grundlegender Button-Stil
+.button {
+    background-color: $primary-color-dark;
+    color: $secondary-color-light;
+    padding: $button-padding;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  
+    &:hover {
+      background-color: $secondary-color-light;
+      color: $primary-color-dark;
+    }
+  
+    &:focus {
+      outline: none; // Entfernt den Fokus-Umriss, kann durch einen benutzerdefinierten Stil ersetzt werden
+    }
+}
+
+
+$test-color: #d19e1c;

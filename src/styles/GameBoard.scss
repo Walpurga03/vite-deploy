@@ -1,9 +1,13 @@
+@import 'variables';
+
 .game-container {
+    padding: 10em 10em 0 10em;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     gap: 3em;
     transform: scale(1);
+    background-color: $primary-color;
 }
 @media (max-width: 900px) {
    .game-container{
@@ -17,14 +21,33 @@
 }
 @media (max-width: 700px) {
    .game-container{
+    padding: 0.7em 0.7em 0 0.7em;
     transform: scale(0.7);
    }
 }
-
-.end-game-message {
-    margin-top: 20px;
-    font-size: 24px;
-    color: red;
+@media (max-width: 600px) {
+   .game-container{
+    padding: 0.6em 0.6em 0 0.6em;
+    transform: scale(0.6);
+   }
+}
+@media (max-width: 500px) {
+   .game-container{
+    padding: 0.5em 0.5em 0 0.5em;
+    transform: scale(0.5);
+   }
+}
+@media (max-width: 400px) {
+   .game-container{
+    padding: 0.4em 0.4em 0 0.4em;
+    transform: scale(0.4);
+   }
+}
+@media (max-width: 300px) {
+   .game-container{
+    padding: 0.3em 0.3em 0 0.3em;
+    transform: scale(0.3);
+   }
 }
 
 .button-container {
@@ -146,7 +169,6 @@
 
 .selected-property p {
     margin: 10px 0;
-    font-size: 16px;
     text-align: center;
 }
 
@@ -176,8 +198,9 @@
 }
 
 .result-highlight {
+    font-family:Georgia, 'Times New Roman', Times, serif;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 2em;
     padding: 10px;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
@@ -207,7 +230,18 @@
       display: flex;
     }
   }
- 
 
+  .card-count{
+    color: $secondary-color;
+    display: flex;
+    justify-content: center; /* Zentriert den Inhalt horizontal */
+    }
 
+  .start-button-container {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    height: 100vh; 
+  }
   
+ 

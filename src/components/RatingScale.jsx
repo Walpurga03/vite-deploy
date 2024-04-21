@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import '../styles/RatingScale.css';
+import '../styles/main.scss';
 
 const RatingScale = ({ value, fillColor }) => {
     return (

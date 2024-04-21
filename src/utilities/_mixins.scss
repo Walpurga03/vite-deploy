@@ -1,0 +1,24 @@
+@mixin breakpoint-xs {
+    @media (max-width: $breakpoint-xs) {
+      @content;
+    }
+  }
+  
+  @mixin breakpoint-sm {
+    @media (max-width: $breakpoint-sm) {
+      @content;
+    }
+  }
+  
+  @mixin breakpoint-md {
+    @media (max-width: $breakpoint-md) {
+      @content;
+    }
+  }
+  
+  @mixin breakpoint-lg {
+    @media (max-width: $breakpoint-lg) {
+      @content;
+    }
+  }
+  

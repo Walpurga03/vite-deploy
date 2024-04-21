@@ -13,10 +13,9 @@ export const dealCards = (shuffledCards) => {
 };
 export const compareCardProperties = (playerCard, computerCard, propertyName) => {
   const propertyNamesMapping = {
-      property0: 'Seit',
       property1: 'Seit',
       property2: 'Knappheit',
-      property3: 'Lebensdauer',
+      property3: 'Langlebigkeit',
       property4: 'Teilbarkeit',
       property5: 'Transportfähigkeit'
   };
@@ -44,7 +43,7 @@ export const selectHighestPropertyForComputer = (computerCard) => {
   let selectedProperty = '';
   const areAllPropertiesLessThan4 = ['property2', 'property3', 'property4', 'property5'].every(prop => computerCard[prop] < 4);
   if (areAllPropertiesLessThan4) {
-    return 'property0';
+    return 'property1';
   } else {
     ['property2', 'property3', 'property4', 'property5'].forEach(prop => {
       if (computerCard[prop] > highestValue) {
@@ -55,3 +54,4 @@ export const selectHighestPropertyForComputer = (computerCard) => {
   }
   return selectedProperty;
 };
+
