@@ -61,8 +61,12 @@ const GameBoard = () => {
                 computerValue: computerCards[0][property]
             });
             console.log(`[Spielerzug] ${propertyLabels[property]} : ${playerCards[0][property]} vs ${computerCards[0][property]}`);
-            setLastTurn(`Letzter Zug: ${propertyLabels[property]} : ${playerCards[0][property]} vs ${computerCards[0][property]}`);
-
+            setLastTurn(`Letzter Zug: ${propertyLabels[property]} : ${
+                property === 'property1' ? -playerCards[0][property] : playerCards[0][property]
+              } vs ${
+                property === 'property1' ? -computerCards[0][property] : computerCards[0][property]
+              }`);
+              
             setTimeout(() => {
                 setFlipComputerCard(true); 
                 setTimeout(() => {
@@ -98,8 +102,12 @@ const GameBoard = () => {
                     setIsButtonClickable(true);
                     
                     console.log(`[Computer Zug] ${propertyLabels[selectedProperty]} : ${playerCards[0][selectedProperty]} vs ${computerCards[0][selectedProperty]}`);
-                    setLastTurn(`Letzter Zug: ${propertyLabels[selectedProperty]} : ${playerCards[0][selectedProperty]} vs ${computerCards[0][selectedProperty]}`);
-                }, 500);
+                    setLastTurn(`Letzter Zug: ${propertyLabels[selectedProperty]} : ${
+                        selectedProperty === 'property1' ? -playerCards[0][selectedProperty] : playerCards[0][selectedProperty]
+                      } vs ${
+                        selectedProperty === 'property1' ? -computerCards[0][selectedProperty] : computerCards[0][selectedProperty]
+                      }`);
+                                      }, 500);
             }, 5000);
         }
     };
