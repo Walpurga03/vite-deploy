@@ -1,3 +1,6 @@
+import { propertiesDescriptions } from '../data/cardsData'; // Pfad entsprechend anpassen
+
+
 export const shuffleCards = (cards) => {
     for (let i = cards.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
@@ -13,11 +16,11 @@ export const dealCards = (shuffledCards) => {
 };
 export const compareCardProperties = (playerCard, computerCard, propertyName) => {
   const propertyNamesMapping = {
-      property1: 'Seit',
-      property2: 'Knappheit',
-      property3: 'Langlebigkeit',
-      property4: 'Teilbarkeit',
-      property5: 'Transportfähigkeit'
+    property1: propertiesDescriptions.property1D,
+    property2: propertiesDescriptions.property2D,
+    property3: propertiesDescriptions.property3D,
+    property4: propertiesDescriptions.property4D,
+    property5: propertiesDescriptions.property5D
   };
   const propertyToCompare = propertyName;
   const readablePropertyName = propertyNamesMapping[propertyToCompare];

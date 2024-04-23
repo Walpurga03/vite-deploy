@@ -4,11 +4,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { startGame, compareCardProperties } from '../redux/actions';
 import { selectHighestPropertyForComputer } from '../logic/gameLogic';
 import infoImage from '/images/info/info.png';
+import { propertiesDescriptions } from '../data/cardsData'; // Pfad entsprechend anpassen
+
 
 import Card from './Card';
 import '../styles/main.scss';
 import StartAnimation from './StartAnimation';
 import EndAnimation from './EndAnimation';
+
 
 const GameBoard = () => {
 
@@ -35,11 +38,11 @@ const GameBoard = () => {
         setIsAnimationFinished(true);
     };
     const propertyLabels = {
-        property1: "Seit",
-        property2: "Knappheit",
-        property3: "Langlebigkeit",
-        property4: "Teilbarkeit",
-        property5: "Transportfähigkeit",
+        property1: propertiesDescriptions.property1D,
+        property2: propertiesDescriptions.property2D,
+        property3: propertiesDescriptions.property3D,
+        property4: propertiesDescriptions.property4D,
+        property5: propertiesDescriptions.property5D,
       };
   
     const handleStartGame = () => {
