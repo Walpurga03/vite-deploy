@@ -33,23 +33,33 @@ const InfoPopup = () => {
                       <li>Wie schwer ist es, mehr davon zu produzieren?</li>
                     </ul>
               
+                    <h3>Langlebigkeit</h3>
+                    <ul>
+                      <li>Ist es haltbar oder hat es einen vertrauensvollen Herausgeber?</li>
+                    </ul>
+
                     <h3>Teilbarkeit</h3>
                     <ul>
                       <li>Wie gut kann man es teilen?</li>
-                      </ul>
-              
+                    </ul>
+
                     <h3>Transportfähigkeit</h3>
                     <ul>
                       <li>Wie gut kann man es transportieren?</li>
                     </ul>
               
-                    <h3>Langlebigkeit</h3>
-                    <ul>
-                      <li>Ist es haltbar oder hat es einen vertrauensvollen Herausgeber?</li>
-                    </ul>
                   </div>
+                  <lightning-widget 
+                      name="Gefällt Ihnen das Spiel?"
+                      button-text="Danke für die Sats"
+                      background-image="public/gif/matrix.gif"
+                      to="aldobarazutti@getalby.com"
+                      labels="☕,🍺,🍕"
+                      amounts="2500,5000,25000"
+                      accent="#000"
+                  ></lightning-widget>
                   <div className='schliesen-button'>
-                   <button className="button" onClick={togglePopup}>Schließen</button>
+                    <button className="button" onClick={togglePopup}>Schließen</button>
                   </div>
                 </div>
               </div>

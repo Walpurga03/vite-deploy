@@ -4,7 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { startGame, compareCardProperties } from '../redux/actions';
 import { selectHighestPropertyForComputer } from '../logic/gameLogic';
 import infoImage from '/images/info/info.png';
-import { propertiesDescriptions } from '../data/cardsData'; // Pfad entsprechend anpassen
+import { propertiesDescriptions } from '../data/cardsData';
+import BackgroundMusic from './BackgroundMusic';
 
 
 import Card from './Card';
@@ -14,6 +15,9 @@ import EndAnimation from './EndAnimation';
 
 
 const GameBoard = () => {
+
+    const [isPlaying, setIsPlaying] = useState(false);
+    const audioFile = 'public/audio/WasIstGeldFuerDich.mp3';
 
     const togglePropertiesPopup = () => setShowPropertiesPopup(!showPropertiesPopup);
     const { playerCards, computerCards, isGameStarted, isPlayerTurn, lastResult, lastSelectedProperty, lastPlayerValue, lastComputerValue, gameOver } = useSelector(state => state.game);
@@ -131,7 +135,7 @@ const GameBoard = () => {
     
       
     return (
-        <>
+        <>  
              {gameOver ? (
                  <EndAnimation playerWon={playerCards.length > 0} />
             ) : (
@@ -139,8 +143,13 @@ const GameBoard = () => {
                  {lastTurn && (
                     <div className="last-turn" data-last-turn={lastTurn}></div>
                 )}
+                <BackgroundMusic src={audioFile} playing={isPlaying} />
+                            <button onClick={() => setIsPlaying(!isPlaying)}>
+                                {isPlaying ? 'Pause Music' : 'Play Music'}
+                            </button>
                     {isGameStarted ? (
                         <div className="game-container">
+                         
                             <div className="player-cards">
                                 <div className="card-count">Spieler  {playerCards.length}</div>
                                 {playerCards.length > 0 && 

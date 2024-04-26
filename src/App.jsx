@@ -5,6 +5,7 @@ import GameBoard from './components/GameBoard';
 import InfoPopup from './components/InfoPopup';
 
 const App = () => {
+
   return (
     <Provider store={store}>
       <div className="App">
