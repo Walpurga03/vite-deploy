@@ -1,4 +1,4 @@
-import { propertiesDescriptions } from '../data/cardsData'; // Pfad entsprechend anpassen
+import { propertiesDescriptions } from '../data/cardsData';
 
 
 export const shuffleCards = (cards) => {

@@ -1,4 +1,4 @@
-import { START_GAME, COMPARE_CARD_PROPERTIES, TOGGLE_LANGUAGE } from './actionTypes';
+import { START_GAME, COMPARE_CARD_PROPERTIES } from './actionTypes';
 import newCards from '../data/cardsData';
 import { shuffleCards, dealCards, compareCardProperties } from '../logic/gameLogic';
 
@@ -26,11 +26,6 @@ const gameReducer = (state = initialState, action) => {
       computerCards: dealtCards.computerCards,
       isGameStarted: true
     };
-    case TOGGLE_LANGUAGE:
-      return {
-        ...state,
-        currentLanguage: state.currentLanguage === 'DE' ? 'EN' : 'DE',
-      };
     case COMPARE_CARD_PROPERTIES:
       const { playerCard, computerCard, selectedProperty } = action.payload;
       const comparisonResult = compareCardProperties(playerCard, computerCard, selectedProperty);

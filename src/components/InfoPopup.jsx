@@ -51,7 +51,7 @@ const InfoPopup = () => {
                   </div>
                   <div>
                     <lightning-widget 
-                        background-image="images/background/background-1.png"
+                        background-image="images/background/matrix.png"
                         name="Gefällt Ihnen das Spiel?"
                         button-text="Danke für die Sats"
                         to="aldobarazutti@getalby.com"

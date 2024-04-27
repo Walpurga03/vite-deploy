@@ -17,7 +17,7 @@ import EndAnimation from './EndAnimation';
 const GameBoard = () => {
 
     const [isPlaying, setIsPlaying] = useState(false);
-    const audioFile = 'public/audio/WasIstGeldFuerDich.mp3';
+    const audioFile = 'audio/WasIstGeldFuerDich.mp3';
 
     const togglePropertiesPopup = () => setShowPropertiesPopup(!showPropertiesPopup);
     const { playerCards, computerCards, isGameStarted, isPlayerTurn, lastResult, lastSelectedProperty, lastPlayerValue, lastComputerValue, gameOver } = useSelector(state => state.game);
