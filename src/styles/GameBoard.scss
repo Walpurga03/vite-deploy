@@ -1,7 +1,7 @@
 @import 'variables';
 
 .game-container {
-    padding: 13em 10em 0 10em;
+    padding: 18em 10em 0 10em;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,8 +31,8 @@
 }
 @media (max-width: 600px) {
    .game-container{
-    padding: 5em 0.6em 0 0.6em;
-    transform: scale(0.6);
+    padding: 5em 0.55em 0 0.55em;
+    transform: scale(0.55);
    }
    .info-box{
     margin-top: -10em;
@@ -41,8 +41,8 @@
 }
 @media (max-width: 500px) {
    .game-container{
-    padding: 5em 0.5em 0 0.5em;
-    transform: scale(0.5);
+    padding: 5em 0.4em 0 0.4em;
+    transform: scale(0.4);
    }
    .info-box{
     margin-top: -15em;
@@ -51,8 +51,8 @@
 }
 @media (max-width: 400px) {
    .game-container{
-    padding: 0.4em 0.4em 0 0.4em;
-    transform: scale(0.4);
+    padding: 0.3em 0.3em 0 0.3em;
+    transform: scale(0.3);
    }
    .info-box{
     margin-top: -20em;
@@ -60,10 +60,6 @@
   }
 }
 @media (max-width: 300px) {
-   .game-container{
-    padding: 0.3em 0.3em 0 0.3em;
-    transform: scale(0.3);
-   }
    .info-box{
     margin-top: -30em;
     margin-left: -15em;
