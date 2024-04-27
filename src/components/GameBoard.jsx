@@ -1,5 +1,4 @@
-// Importieren notwendiger Abhängigkeiten und Komponenten
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { startGame, compareCardProperties } from '../redux/actions';
 import { selectHighestPropertyForComputer } from '../logic/gameLogic';
@@ -130,7 +129,7 @@ const GameBoard = () => {
         }
 
     function invertSign(value) {
-        return -value; // Diese einfache Operation kehrt das Vorzeichen um
+        return -value;
     }
     
       
@@ -144,9 +143,9 @@ const GameBoard = () => {
                     <div className="last-turn" data-last-turn={lastTurn}></div>
                 )}
                 <BackgroundMusic src={audioFile} playing={isPlaying} />
-                            <button className="button musik-button"onClick={() => setIsPlaying(!isPlaying)}>
-                                {isPlaying ? 'Pause Music' : 'Play Music'}
-                            </button>
+<button className="button musik-button" onClick={() => setIsPlaying(!isPlaying)}>
+  {isPlaying ? 'Pause Music' : 'Play Music'}
+</button>
                     {isGameStarted ? (
                         <div className="game-container">
                          
