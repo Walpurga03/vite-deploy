@@ -49,15 +49,17 @@ const InfoPopup = () => {
                     </ul>
               
                   </div>
-                  <lightning-widget 
-                      name="Gefällt Ihnen das Spiel?"
-                      button-text="Danke für die Sats"
-                      background-image="public/gif/matrix.gif"
-                      to="aldobarazutti@getalby.com"
-                      labels="☕,🍺,🍕"
-                      amounts="2500,5000,25000"
-                      accent="#000"
-                  ></lightning-widget>
+                  <div>
+                    <lightning-widget 
+                        background-image="images/background/background-1.png"
+                        name="Gefällt Ihnen das Spiel?"
+                        button-text="Danke für die Sats"
+                        to="aldobarazutti@getalby.com"
+                        labels="☕,🍺,🍕"
+                        amounts="2500,5000,25000"
+                        accent="#000">
+                    </lightning-widget>
+                </div>
                   <div className='schliesen-button'>
                     <button className="button" onClick={togglePopup}>Schließen</button>
                   </div>

@@ -45,8 +45,8 @@
     transform: scale(0.5);
    }
    .info-box{
-    margin-top: -18em;
-    margin-left: -14em;
+    margin-top: -15em;
+    margin-left: -12em;
   }
 }
 @media (max-width: 400px) {
@@ -55,7 +55,7 @@
     transform: scale(0.4);
    }
    .info-box{
-    margin-top: -23em;
+    margin-top: -20em;
     margin-left: -15em;
   }
 }
@@ -65,7 +65,7 @@
     transform: scale(0.3);
    }
    .info-box{
-    margin-top: -35em;
+    margin-top: -30em;
     margin-left: -15em;
   }
 }
@@ -295,7 +295,7 @@
   
   .info-box {
     position: fixed; // Fixiert das Element auf dem Bildschirm
-    top: 0;          // Setzt es an den oberen Rand des Bildschirmbereichs
+    top: 3em;          // Setzt es an den oberen Rand des Bildschirmbereichs
     left: 0;         // Setzt es an den linken Rand des Bildschirmbereichs
     z-index: 1000;   // Stellt sicher, dass es über anderen Inhalten liegt
   }
@@ -327,6 +327,13 @@
       position: absolute;
       animation: marquee 10s linear infinite; // 10 Sekunden für eine komplette Laufzeit
     }
+  }
+
+  .musik-button{
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 100;
   }
   
 

@@ -144,7 +144,7 @@ const GameBoard = () => {
                     <div className="last-turn" data-last-turn={lastTurn}></div>
                 )}
                 <BackgroundMusic src={audioFile} playing={isPlaying} />
-                            <button onClick={() => setIsPlaying(!isPlaying)}>
+                            <button className="button musik-button"onClick={() => setIsPlaying(!isPlaying)}>
                                 {isPlaying ? 'Pause Music' : 'Play Music'}
                             </button>
                     {isGameStarted ? (
