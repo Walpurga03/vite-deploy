@@ -1,9 +1,24 @@
 export const propertiesDescriptions = {
-  property1D: "Seit",
-  property2D: "Knappheit",
-  property3D: "Langlebigkeit",
-  property4D: "Teilbarkeit",
-  property5D: "Transportfähigkeit",
+  property1D: {
+    name: "Seit",
+    description: "Das Jahr der erstmaligen Nutzung. Die älteste Karte gewinnt."
+  },
+  property2D: {
+    name: "Knappheit",
+    description: "Wie schwer ist es, mehr davon zu produzieren?"
+  },
+  property3D: {
+    name: "Langlebigkeit",
+    description: "Ist es haltbar oder hat es einen vertrauensvollen Herausgeber?"
+  },
+  property4D: {
+    name: "Teilbarkeit",
+    description: "Wie gut kann man es teilen?"
+  },
+  property5D: {
+    name: "Transportfähigkeit",
+    description: "Wie gut kann man es transportieren?"
+  }
 };
 
 const newCards = [

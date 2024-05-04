@@ -46,35 +46,35 @@ const Card = ({ card, onPropertyClick, isClickable, isPlayerCard, className, sho
         return (
             <ul className='card-ul'>
                 <li className='card-li' onClick={() => handlePropertyClick('property1')}>
-                <span className="card-li-text">{card.property1D}:</span>
+                <span className="card-li-text">{card.property1D.name}:</span>
                     <div className="property-with-scale">
                     <span className='card-property1'>{invertSign(card.property1)}</span>
                         {/* <RatingScale value={card.property1} fillColor="#AE5371"/> */}
                     </div>
                 </li>
                 <li className='card-li' onClick={() => handlePropertyClick('property2')}>
-                <span className="card-li-text">{card.property2D}:</span>
+                <span className="card-li-text">{card.property2D.name}:</span>
                     <div className="property-with-scale">
                         <span>{card.property2}</span>
                         <RatingScale value={card.property2} fillColor="#BE9796"/>
                     </div>
                 </li>
                 <li className='card-li' onClick={() => handlePropertyClick('property3')}>
-                <span className="card-li-text">{card.property3D}:</span>
+                <span className="card-li-text">{card.property3D.name}:</span>
                     <div className="property-with-scale">
                         <span>{card.property3}</span>
                         <RatingScale value={card.property3} fillColor="#CEDBE6"/>
                     </div>
                 </li>  
                 <li className='card-li' onClick={() => handlePropertyClick('property4')}>
-                <span className="card-li-text">{card.property4D}:</span>
+                <span className="card-li-text">{card.property4D.name}:</span>
                     <div className="property-with-scale">
                         <span>{card.property4}</span>
                         <RatingScale value={card.property4} fillColor="#78CBB3"/>
                     </div>
                 </li>  
                 <li className='card-li' onClick={() => handlePropertyClick('property5')}>
-                <span className="card-li-text">{card.property5D}:</span>
+                <span className="card-li-text">{card.property5D.name}:</span>
                     <div className="property-with-scale">
                         <span>{card.property5}</span>
                         <RatingScale value={card.property5} fillColor="#A3C5B1"/>

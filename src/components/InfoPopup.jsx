@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import '../styles/main.scss'; 
+import { propertiesDescriptions } from '../data/cardsData';
+
 
 const InfoPopup = () => {
     const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -13,53 +15,35 @@ const InfoPopup = () => {
             <button className="button info-button" onClick={togglePopup}>Info</button>
             {isPopupOpen && (
                 <div className="popup-overlay">
-                <div className="popup-content">
-                  <div className="properties-info">
-                    <h2>Regeln & Kategorien</h2>
-                    <ul>
-                      <li>- Der Spieler wählt eine Kategorie</li>
-                      <li>- Der Spieler mit dem höchsten Wert gewinnt die Karte des anderen.</li>
-                      <li>- Wenn beide Spieler den gleichen Wert haben, werden die Karten auf die Seite gelegt, und in der nächsten runde bekommt der Gewinner diesen Stapel.</li>  
-                      <li>- Das Spiel endet, wenn ein Spieler alle Karten gewonnen hat</li>
-                    </ul>
-
-                    <h3>Seit</h3>
-                    <ul>
-                      <li>Das Jahr der erstmaligen Nutzung. Die älteste Karte gewinnt.</li>
-                    </ul>
-              
-                    <h3>Knappheit</h3>
-                    <ul>
-                      <li>Wie schwer ist es, mehr davon zu produzieren?</li>
-                    </ul>
-              
-                    <h3>Langlebigkeit</h3>
-                    <ul>
-                      <li>Ist es haltbar oder hat es einen vertrauensvollen Herausgeber?</li>
-                    </ul>
-
-                    <h3>Teilbarkeit</h3>
-                    <ul>
-                      <li>Wie gut kann man es teilen?</li>
-                    </ul>
-
-                    <h3>Transportfähigkeit</h3>
-                    <ul>
-                      <li>Wie gut kann man es transportieren?</li>
-                    </ul>
-              
-                  </div>
-                  <div>
-                    <lightning-widget 
-                        background-image="images/background/matrix.png"
-                        name="Gefällt Ihnen das Spiel?"
-                        button-text="Danke für die Sats"
-                        to="aldobarazutti@getalby.com"
-                        labels="☕,🍺,🍕"
-                        amounts="2500,5000,25000"
-                        accent="#000">
-                    </lightning-widget>
-                </div>
+                    <div className="popup-content">
+                      <div className="properties-info">
+                        <h2>Regeln & Kategorien</h2>
+                        <ul>
+                          <li>Der Spieler wählt eine Kategorie</li>
+                          <li>Der Spieler mit dem höchsten Wert gewinnt die Karte des anderen.</li>
+                          <li>Bei gleichen Wert, bekommt der Gewinner der nächsten Runde diese Karten.</li>  
+                          <li>Das Spiel endet, wenn ein Spieler alle Karten gewonnen hat</li>
+                        </ul>
+                        {Object.entries(propertiesDescriptions).map(([key, { name, description }]) => (
+                          <div key={key}>
+                            <h3 className='properties-info-h3'>{name}</h3>
+                            <ul className='properties-info-ul'>
+                              <li className='properties-info-li'>{description}</li>
+                            </ul>
+                          </div>
+                        ))}
+                      </div>
+                      <div>
+                        <lightning-widget 
+                            background-image="images/background/matrix.png"
+                            name="Gefällt Ihnen das Spiel?"
+                            button-text="Danke für die Sats"
+                            to="aldobarazutti@getalby.com"
+                            labels="☕,🍺,🍕"
+                            amounts="2500,5000,25000"
+                            accent="#000">
+                        </lightning-widget>
+                    </div>
                   <div className='schliesen-button'>
                     <button className="button" onClick={togglePopup}>Schließen</button>
                   </div>

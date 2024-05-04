@@ -41,11 +41,11 @@ const GameBoard = () => {
         setIsAnimationFinished(true);
     };
     const propertyLabels = {
-        property1: propertiesDescriptions.property1D,
-        property2: propertiesDescriptions.property2D,
-        property3: propertiesDescriptions.property3D,
-        property4: propertiesDescriptions.property4D,
-        property5: propertiesDescriptions.property5D,
+        property1: propertiesDescriptions.property1D.name,
+        property2: propertiesDescriptions.property2D.name,
+        property3: propertiesDescriptions.property3D.name,
+        property4: propertiesDescriptions.property4D.name,
+        property5: propertiesDescriptions.property5D.name,
       };
   
     const handleStartGame = () => {

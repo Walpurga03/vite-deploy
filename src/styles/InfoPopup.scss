@@ -39,21 +39,21 @@
         font-size: 2em;
         margin-top: 20px;
     }
-  .properties-info h3 {
+  .properties-info-h3 {
     color: $secondary-color;
-      margin-top: 20px;
+      margin: 0px;
     }
   
-  .properties-info ul {
+  .properties-info-ul {
     list-style-type: none;
     padding-left:0;
-    margin-left: 0;
+    margin: 0.2em 0 0.7em ;
     color: $secondary-color-light;
   }
   
-  .properties-info li {
+  .properties-info-li {
     text-align: left;
-    margin-bottom: 5px;
+    margin-left: 10px;
   }
   
   .schliesen-button{
